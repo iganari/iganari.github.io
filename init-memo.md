@@ -72,8 +72,7 @@ hugo server --bind 0.0.0.0
 
 + ブラウザから確認する
   + この時点ではブランクのページが表示されるのみ
-
-http://127.0.0.1:1313
+  + http://127.0.0.1:1313
 
 + テーマをインポートする
   + 今回は [Hugo Future Imperfect](https://themes.gohugo.io/future-imperfect/) を使用する
@@ -92,8 +91,7 @@ echo 'theme = "hugo-future-imperfect"' >> config.toml
 
 + ブラウザから確認する
   + なにか表示が変われば、無事にロード出来ている
-
-http://127.0.0.1:1313
+  + http://127.0.0.1:1313
 
 + 後は自分でコンテンツを作っていく
 
