@@ -1,0 +1,8 @@
+version: '3.3'
+
+services:
+  web:
+    image: jguyomard/hugo-builder
+    container_name: hugo-container
+    ports:
+      - "1313:1313"
