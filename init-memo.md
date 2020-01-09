@@ -160,3 +160,34 @@ $ docker-compose ps
 ----------------------------------------------------------------------------
 hugo-container   hugo server --bind 0.0.0.0   Up      0.0.0.0:1313->1313/tcp
 ```
+
++ ブラウザから確認する
+  + 意図した内容がブラウザで確認出来れば OK
+  + http://127.0.0.1:1313
+
++ Docker Compose のコマンドめも
+
+```
+### コンテナのイメージだけ作る
+docker-compose build
+
+
+### コンテナのイメージ作りつつ、(プロセスとして)起動する
+docker-compose up
+
+
+### コンテナのイメージ作りつつ、(デーモンとして)起動する
+docker-compose up -d
+
+
+### プロセスを見る
+docker-compose ps
+
+
+### 起動しているのを停止
+docker-compose stop
+
+
+### コンテナイメージの削除
+docker-compose rm
+```
