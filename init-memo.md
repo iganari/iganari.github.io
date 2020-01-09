@@ -8,13 +8,18 @@
 
 ## HUGO の始めの一歩
 
-+ hugo の環境を用意する
++ hugo の環境を用意する ---> :whale:
 
 ```
-割愛
+docker run --rm -it \
+  -v $(pwd):/usr/local/iganari \
+  -w /usr/local/iganari \
+  -p "1313:1313" \
+  jguyomard/hugo-builder \
+  /bin/ash
 ```
 
-+ まずは雛形を作成
++ :whale: まずは雛形を作成
 
 ```
 export my_site_dir='iganari-github-io'
@@ -63,7 +68,7 @@ Visit https://gohugo.io/ for quickstart guide and full documentation.
 # 
 ```
 
-+ hugo コマンドに内包されている server コマンドを使う
++ :whale: hugo コマンドに内包されている server コマンドを使う
 
 ```
 cd ${my_site_dir}
@@ -72,8 +77,7 @@ hugo server --bind 0.0.0.0
 
 + ブラウザから確認する
   + この時点ではブランクのページが表示されるのみ
-
-http://127.0.0.1:1313
+  + http://127.0.0.1:1313
 
 + テーマをインポートする
   + 今回は [Hugo Future Imperfect](https://themes.gohugo.io/future-imperfect/) を使用する
@@ -84,7 +88,7 @@ mkdir themes
 git clone https://github.com/jpescador/hugo-future-imperfect.git themes/hugo-future-imperfect
 ```
 
-+ HUGO の設定ファイルにテーマを記述
++ :whale: HUGO の設定ファイルにテーマを記述
 
 ```
 echo 'theme = "hugo-future-imperfect"' >> config.toml
@@ -92,12 +96,98 @@ echo 'theme = "hugo-future-imperfect"' >> config.toml
 
 + ブラウザから確認する
   + なにか表示が変われば、無事にロード出来ている
+  + http://127.0.0.1:1313
 
-http://127.0.0.1:1313
++ :whale: 後は自分でコンテンツを作っていく
+  + 本家の GitHub Repository
+    + https://github.com/pacollins/hugo-future-imperfect-slim
+  + サンプル
+    + https://github.com/pacollins/hugo-future-imperfect-slim/blob/master/exampleSite/config.toml
 
-+ 後は自分でコンテンツを作っていく
+## Docker Compose で動くようにする :whale::whale:
+
++ 現状のリソースを確認する
+  + `iganari-github-io` ディレクトリの下に HUGO のソースがあるので、そこをワークディレクトリにしつつ、 `hugo server` を起動するようにする
+
+```
+$ tree -L 2
+.
+├── README.md
+├── docker-compose.yml
+├── iganari-github-io
+│   ├── archetypes
+│   ├── config.toml
+│   ├── content
+│   ├── data
+│   ├── layouts
+│   ├── resources
+│   ├── static
+│   └── themes
+└── init-memo.md
+
+8 directories, 4 files
+```
+
++ docker-compose.yml は下記のよう
+
+```
+version: '3.3'
+
+services:
+  web:
+    image: jguyomard/hugo-builder
+    container_name: hugo-container
+    ports:
+      - "1313:1313"
+    volumes:
+      - ./:/usr/local/iganari/iganari.github.io
+    working_dir: /usr/local/iganari/iganari.github.io/iganari-github-io
+    # command: /bin/sh  # for Debug
+    # tty: true         # for Debug
+    command: hugo server --bind 0.0.0.0
+```
+
++ 実行してみる
+
+```
+docker-compose up -d
+```
+```
+### 例
+
+$ docker-compose ps
+     Name                 Command             State           Ports         
+----------------------------------------------------------------------------
+hugo-container   hugo server --bind 0.0.0.0   Up      0.0.0.0:1313->1313/tcp
+```
+
++ ブラウザから確認する
+  + 意図した内容がブラウザで確認出来れば OK
+  + http://127.0.0.1:1313
+
++ Docker Compose のコマンドめも
+
+```
+### コンテナのイメージだけ作る
+docker-compose build
 
 
+### コンテナのイメージ作りつつ、(プロセスとして)起動する
+docker-compose up
 
 
+### コンテナのイメージ作りつつ、(デーモンとして)起動する
+docker-compose up -d
 
+
+### プロセスを見る
+docker-compose ps
+
+
+### 起動しているのを停止
+docker-compose stop
+
+
+### サービス(?)の削除(<- うまい言葉が出てこない)
+docker-compose rm
+```
