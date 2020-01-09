@@ -21,10 +21,20 @@ docker run --rm -it \
 hugo help
 ```
 
+### Docker Compose を使って起動する
 
++ Repo をクローンする
 
+```
+git clone hoge
+cd iganari.github.io
+```
 
-### ブラウザで確認したい場合
++ テーマをクローンする
+
+```
+git clone https://github.com/jpescador/hugo-future-imperfect.git iganari-github-io/themes/hugo-future-imperfect
+```
 
 + Docker Compose の起動
 
