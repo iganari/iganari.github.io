@@ -106,3 +106,24 @@ echo 'theme = "hugo-future-imperfect"' >> config.toml
 
 ## Docker Compose で動くようにする :whale::whale:
 
++ 現状のリソースを確認する
+  + `iganari-github-io` ディレクトリの下に HUGO のソースがあるので、そこをワークディレクトリにしつつ、 `hugo server` を起動するようにする
+
+```
+$ tree -L 2
+.
+├── README.md
+├── docker-compose.yml
+├── iganari-github-io
+│   ├── archetypes
+│   ├── config.toml
+│   ├── content
+│   ├── data
+│   ├── layouts
+│   ├── resources
+│   ├── static
+│   └── themes
+└── init-memo.md
+
+8 directories, 4 files
+```
