@@ -188,6 +188,6 @@ docker-compose ps
 docker-compose stop
 
 
-### コンテナイメージの削除
+### サービス(?)の削除(<- うまい言葉が出てこない)
 docker-compose rm
 ```
