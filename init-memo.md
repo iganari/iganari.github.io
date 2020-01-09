@@ -8,13 +8,18 @@
 
 ## HUGO の始めの一歩
 
-+ hugo の環境を用意する
++ hugo の環境を用意する ---> :whale:
 
 ```
-割愛
+docker run --rm -it \
+  -v $(pwd):/usr/local/iganari \
+  -w /usr/local/iganari \
+  -p "1313:1313" \
+  jguyomard/hugo-builder \
+  /bin/ash
 ```
 
-+ まずは雛形を作成
++ :whale: まずは雛形を作成
 
 ```
 export my_site_dir='iganari-github-io'
@@ -63,7 +68,7 @@ Visit https://gohugo.io/ for quickstart guide and full documentation.
 # 
 ```
 
-+ hugo コマンドに内包されている server コマンドを使う
++ :whale: hugo コマンドに内包されている server コマンドを使う
 
 ```
 cd ${my_site_dir}
@@ -83,7 +88,7 @@ mkdir themes
 git clone https://github.com/jpescador/hugo-future-imperfect.git themes/hugo-future-imperfect
 ```
 
-+ HUGO の設定ファイルにテーマを記述
++ :whale: HUGO の設定ファイルにテーマを記述
 
 ```
 echo 'theme = "hugo-future-imperfect"' >> config.toml
@@ -93,11 +98,11 @@ echo 'theme = "hugo-future-imperfect"' >> config.toml
   + なにか表示が変われば、無事にロード出来ている
   + http://127.0.0.1:1313
 
-+ 後は自分でコンテンツを作っていく
++ :whale: 後は自分でコンテンツを作っていく
   + 本家の GitHub Repository
     + https://github.com/pacollins/hugo-future-imperfect-slim
   + サンプル
     + https://github.com/pacollins/hugo-future-imperfect-slim/blob/master/exampleSite/config.toml
 
-
+## Docker Compose で動くようにする :whale::whale:
 
