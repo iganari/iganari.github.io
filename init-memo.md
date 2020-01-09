@@ -94,8 +94,10 @@ echo 'theme = "hugo-future-imperfect"' >> config.toml
   + http://127.0.0.1:1313
 
 + 後は自分でコンテンツを作っていく
-
-
+  + 本家の GitHub Repository
+    + https://github.com/pacollins/hugo-future-imperfect-slim
+  + サンプル
+    + https://github.com/pacollins/hugo-future-imperfect-slim/blob/master/exampleSite/config.toml
 
 
 
