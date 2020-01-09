@@ -1,4 +1,6 @@
-baseURL = "http://example.org/"
+# https://github.com/pacollins/hugo-future-imperfect-slim/blob/master/exampleSite/config.toml
+
+baseURL = "https://iganari.github.io/"
 languageCode = "en-us"
 title = "My New Hugo Site"
 theme = "hugo-future-imperfect"
