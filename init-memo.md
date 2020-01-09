@@ -127,3 +127,36 @@ $ tree -L 2
 
 8 directories, 4 files
 ```
+
++ docker-compose.yml は下記のよう
+
+```
+version: '3.3'
+
+services:
+  web:
+    image: jguyomard/hugo-builder
+    container_name: hugo-container
+    ports:
+      - "1313:1313"
+    volumes:
+      - ./:/usr/local/iganari/iganari.github.io
+    working_dir: /usr/local/iganari/iganari.github.io/iganari-github-io
+    # command: /bin/sh  # for Debug
+    # tty: true         # for Debug
+    command: hugo server --bind 0.0.0.0
+```
+
++ 実行してみる
+
+```
+docker-compose up -d
+```
+```
+### 例
+
+$ docker-compose ps
+     Name                 Command             State           Ports         
+----------------------------------------------------------------------------
+hugo-container   hugo server --bind 0.0.0.0   Up      0.0.0.0:1313->1313/tcp
+```
