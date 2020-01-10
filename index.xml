@@ -1,9 +1,34 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ESCAPE FROM / iganari</title><link>https://iganari.github.io/</link><description>Recent content on ESCAPE FROM / iganari</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://iganari.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>First Commit</title><link>https://iganari.github.io/blog/2020-01-01_sample-post/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://iganari.github.io/blog/2020-01-01_sample-post/</guid><description>ブログを引越しました はじめまして はじめまして。 iganari です :)
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ESCAPE FROM / iganari</title><link>https://iganari.github.io/</link><description>Recent content on ESCAPE FROM / iganari</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 04 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://iganari.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>new PC Cover</title><link>https://iganari.github.io/blog/2020-01-04_new-pc-cover/</link><pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate><guid>https://iganari.github.io/blog/2020-01-04_new-pc-cover/</guid><description>注意点 この記事は下記の記事のアーカイブです ;)
+https://iganari.hatenablog.com/entry/2020/01/04/143949 MacBook Air のハードケースを年毎に取り替えてみる💻 新年になって初めての買い物は下記のノートPC用のハードケースです。
+Belk New MacBook Air 2018 13 インチ ケース
+https://www.amazon.co.jp/gp/product/B07KXFHBYV なぜ購入したかというと、傷防止のためと勉強会やカンファレンスに参加した際に頂くシールを貼るためです。
+本体に直接貼ると、例えば会社からの貸与マシンの場合は会社に返却の際にすべて剥がさないといけなかったり、そもそもシールを貼れるスペースが限られているので定期的にシールを入れ替えるか、シール自体を重ねないといけません。
+それはとても悲しいので、ハードケースを付けて年毎に付け替える運用にしてみました。
+後からハードケースを見直せば、その年にどんな場所に顔を出したのか、どんな分野に興味があったのかが見れるはずなので面白いかなと思っています。
+1年後にこのハードケースがどんな装飾になっているか、今からとても楽しみです:D</description></item><item><title>new year’s resolutions</title><link>https://iganari.github.io/blog/2020-01-03_new-years-resolutions/</link><pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate><guid>https://iganari.github.io/blog/2020-01-03_new-years-resolutions/</guid><description>注意点 この記事は下記の記事のアーカイブです ;)
+https://iganari.hatenablog.com/entry/2020/01/03/102216 2019年の振り返りと2020年のこれから 新年あけましておめでとうございます🎍
+2019年は公私ともに再出発の年でした。
+今の気持ちを忘れぬよう、(抽象的にぼかしますが)素直に書いてみようと思います。
+2019年について 2019年に起きた主なこと 引っ越し 転職 持病 再起 2019年は自分にとっては生まれ変わるきっかけを与えてくれた年でした。
+引っ越しについて 部屋が一つ増えました。そのおかげで家にコーディング専用の机を置くことが出来、家でコードを書く環境が整いました。
+また、アクセス出来る駅が増えました。東京の東側に住んでいるのですが、歩いていける距離に電車の駅が複数あることにより、勉強会の帰り道などで、より早く帰れるようになりました。
+転職について それまでの会社も好きだったのですが、訳あって前線からは遠ざかっていたこともあり、自分に自信が持てず保身にばかり走っていた状況でした。
+その状況を変えるために、転職をしました。
+転職した会社に入って半年経ち、既にいろいろ問題もありますが、チャンスもたくさんある会社なので、ここで出来ることを精一杯やろうと決めています。
+持病が発覚 この歳になって、持病が発覚しました。生死に関わるものではなく、普段の生活にも支障は無いのですが、特効薬みたいなものも未だ見つかっていない病気なので、いまは漢方薬を処方してもらい、長くゆっくり直していく予定です。
+再起について エモい話ですが、自分の怠慢のせいで、人生において1番大切な人との繋がりを無くしてしまいました。すべて自分のせいですが、当時は相当荒れたし、後悔で夜中に目が覚める事は今でも少なくありません。
+ただ、自分が変わらないとなにも変わらないことは火を見るより明らかなので、「その人が信じてくれていた自分を信じて、がむしゃらに行動をし成果を出す」と覚悟を決めました。
+何年掛かってもかならず追いついて、今度こそ腹を割って話せるようになると心の奥に誓いを立てました。
+2020年について 決意 2019年下半期、とりわけ10月以降は自分のキャパシティを超えたスケジュール密度で技術領域への挑戦を行いました。2ヶ月間走り続けましたが、今でも自分自身に自信が持てずにいます。
+ただ、それでも目をかけてくれる周りの方はたくさんいます。なので、その人たちが信じてくれている自分を信じて走り続けます。
+いつか、自分自身も自分を信じてあげれるようになれるよう走り続けます。
+また、周りを巻き込むことが出来る能力や、周りを巻き込みたいと思っている人を1番に支援することが出来る能力も合わせて培っていきたいと思っています。
+具体的な技術領域(希望を含む) Infrastructure as Code Terraform, Ansible Programming Python, Golang Cloud GCP, Azure OSS Kubernetes, Docker IoT Node-RED, Noodl VUI LINE Clova インフラエンジニア出身であり今は SRE に身を置いているので、そのバックグラウンドを元に Infrastructure as Code やサービスの全体設計を俯瞰して考え・話すことが出来るようなりたいと考えています。</description></item><item><title>First Commit</title><link>https://iganari.github.io/blog/2020-01-01_first-commit/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://iganari.github.io/blog/2020-01-01_first-commit/</guid><description>ブログを引越しました はじめまして はじめまして。 iganari です :)
 このサイトは私が日々自ら検証し、出来たり出来なかったりした技術的な内容を主に書くブログです。
 また、他のブログサイトに書いた自分の記事の内容をアーカイブしておくためのブログでもあります。
 今までは他のサイトを構築・運用していましたが、2020年にこのサイトにリプレースしました。
 このサイトを通じて、読んで頂いた方に何かしらの気付きがあれば嬉しいです! ;)
-サイトの構成 このサイトは以下の構成・仕組みとなっています
-種類 使用した技術 ホスティング GitHub Pages Web framework Hugo デプロイ方法 GitHub Actions ソースコードはこちらになります
+サイトの構成 このサイトは以下の構成・仕組みとなっています。
+種類 使用した技術 ホスティング GitHub Pages Web framework Hugo デプロイ方法 GitHub Actions ソースコードはこちらになります。
 https://github.com/iganari/iganari.github.io まとめ これからもよろしくお願い致します!
 Have fun ! :D</description></item></channel></rss>

@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>etc on ESCAPE FROM / iganari</title><link>https://iganari.github.io/categories/etc/</link><description>Recent content in etc on ESCAPE FROM / iganari</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://iganari.github.io/categories/etc/index.xml" rel="self" type="application/rss+xml"/><item><title>First Commit</title><link>https://iganari.github.io/blog/2020-01-01_sample-post/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://iganari.github.io/blog/2020-01-01_sample-post/</guid><description>ブログを引越しました はじめまして はじめまして。 iganari です :)
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>etc on ESCAPE FROM / iganari</title><link>https://iganari.github.io/categories/etc/</link><description>Recent content in etc on ESCAPE FROM / iganari</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://iganari.github.io/categories/etc/index.xml" rel="self" type="application/rss+xml"/><item><title>First Commit</title><link>https://iganari.github.io/blog/2020-01-01_first-commit/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://iganari.github.io/blog/2020-01-01_first-commit/</guid><description>ブログを引越しました はじめまして はじめまして。 iganari です :)
 このサイトは私が日々自ら検証し、出来たり出来なかったりした技術的な内容を主に書くブログです。
 また、他のブログサイトに書いた自分の記事の内容をアーカイブしておくためのブログでもあります。
 今までは他のサイトを構築・運用していましたが、2020年にこのサイトにリプレースしました。
 このサイトを通じて、読んで頂いた方に何かしらの気付きがあれば嬉しいです! ;)
-サイトの構成 このサイトは以下の構成・仕組みとなっています
-種類 使用した技術 ホスティング GitHub Pages Web framework Hugo デプロイ方法 GitHub Actions ソースコードはこちらになります
+サイトの構成 このサイトは以下の構成・仕組みとなっています。
+種類 使用した技術 ホスティング GitHub Pages Web framework Hugo デプロイ方法 GitHub Actions ソースコードはこちらになります。
 https://github.com/iganari/iganari.github.io まとめ これからもよろしくお願い致します!
 Have fun ! :D</description></item></channel></rss>

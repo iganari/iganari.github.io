@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog on ESCAPE FROM / iganari</title><link>https://iganari.github.io/blog/</link><description>Recent content in Blog on ESCAPE FROM / iganari</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 04 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://iganari.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>new PC Cover</title><link>https://iganari.github.io/blog/2020-01-04_new-pc-cover/</link><pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate><guid>https://iganari.github.io/blog/2020-01-04_new-pc-cover/</guid><description>注意点 この記事は下記の記事のアーカイブです ;)
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>poem on ESCAPE FROM / iganari</title><link>https://iganari.github.io/categories/poem/</link><description>Recent content in poem on ESCAPE FROM / iganari</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 04 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://iganari.github.io/categories/poem/index.xml" rel="self" type="application/rss+xml"/><item><title>new PC Cover</title><link>https://iganari.github.io/blog/2020-01-04_new-pc-cover/</link><pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate><guid>https://iganari.github.io/blog/2020-01-04_new-pc-cover/</guid><description>注意点 この記事は下記の記事のアーカイブです ;)
 https://iganari.hatenablog.com/entry/2020/01/04/143949 MacBook Air のハードケースを年毎に取り替えてみる💻 新年になって初めての買い物は下記のノートPC用のハードケースです。
 Belk New MacBook Air 2018 13 インチ ケース
 https://www.amazon.co.jp/gp/product/B07KXFHBYV なぜ購入したかというと、傷防止のためと勉強会やカンファレンスに参加した際に頂くシールを貼るためです。
@@ -23,12 +23,4 @@ https://iganari.hatenablog.com/entry/2020/01/03/102216 2019年の振り返りと
 ただ、それでも目をかけてくれる周りの方はたくさんいます。なので、その人たちが信じてくれている自分を信じて走り続けます。
 いつか、自分自身も自分を信じてあげれるようになれるよう走り続けます。
 また、周りを巻き込むことが出来る能力や、周りを巻き込みたいと思っている人を1番に支援することが出来る能力も合わせて培っていきたいと思っています。
-具体的な技術領域(希望を含む) Infrastructure as Code Terraform, Ansible Programming Python, Golang Cloud GCP, Azure OSS Kubernetes, Docker IoT Node-RED, Noodl VUI LINE Clova インフラエンジニア出身であり今は SRE に身を置いているので、そのバックグラウンドを元に Infrastructure as Code やサービスの全体設計を俯瞰して考え・話すことが出来るようなりたいと考えています。</description></item><item><title>First Commit</title><link>https://iganari.github.io/blog/2020-01-01_first-commit/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://iganari.github.io/blog/2020-01-01_first-commit/</guid><description>ブログを引越しました はじめまして はじめまして。 iganari です :)
-このサイトは私が日々自ら検証し、出来たり出来なかったりした技術的な内容を主に書くブログです。
-また、他のブログサイトに書いた自分の記事の内容をアーカイブしておくためのブログでもあります。
-今までは他のサイトを構築・運用していましたが、2020年にこのサイトにリプレースしました。
-このサイトを通じて、読んで頂いた方に何かしらの気付きがあれば嬉しいです! ;)
-サイトの構成 このサイトは以下の構成・仕組みとなっています。
-種類 使用した技術 ホスティング GitHub Pages Web framework Hugo デプロイ方法 GitHub Actions ソースコードはこちらになります。
-https://github.com/iganari/iganari.github.io まとめ これからもよろしくお願い致します!
-Have fun ! :D</description></item></channel></rss>
+具体的な技術領域(希望を含む) Infrastructure as Code Terraform, Ansible Programming Python, Golang Cloud GCP, Azure OSS Kubernetes, Docker IoT Node-RED, Noodl VUI LINE Clova インフラエンジニア出身であり今は SRE に身を置いているので、そのバックグラウンドを元に Infrastructure as Code やサービスの全体設計を俯瞰して考え・話すことが出来るようなりたいと考えています。</description></item></channel></rss>
