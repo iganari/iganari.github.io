@@ -257,3 +257,26 @@ drwxrwxrwt 12 root    root  20480 Jan 10 09:58 ../
 + 無料で使うには Public ではないといけない
 + でなけれな、 hosted にするか pro にするか
 + また、 GitHub 上でやる場合は master branch がさらされるので、デフォルトの brabch を master 以外に変更する
+
+## 全体の PATH を変えるために iganari-github-io にあったファイルをすべて、  root ディレクトリに移す
+
+```
+$ tree -L 2
+.
+├── README.md
+├── archetypes
+│   └── default.md
+├── config.toml
+├── content
+│   ├── about
+│   └── blog
+├── docker-compose.yml
+├── init-memo.md
+├── static
+│   └── img
+└── themes
+
+7 directories, 5 files
+```
+
+## GitHub Actions も修正する

@@ -24,12 +24,10 @@ jobs:
 
     - name: Build
       run: |
-        cd iganari-github-io
+        ls
         git clone https://github.com/jpescador/hugo-future-imperfect.git themes/hugo-future-imperfect
         hugo --minify
-        cd -
         ls
-        ls -la iganari-github-io
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2
@@ -39,4 +37,4 @@ jobs:
         # ACTIONS_DEPLOY_KEY: ${{ secrets.GITHUB_TOKEN }}
         # PUBLISH_BRANCH: gh-pages
         PUBLISH_BRANCH: master
-        PUBLISH_DIR: ./iganari-github-io/public
+        PUBLISH_DIR: ./public
