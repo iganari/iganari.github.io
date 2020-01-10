@@ -1,12 +1,11 @@
 # refs: https://github.com/peaceiris/actions-hugo
 
-name: github pages
+name: github pages publish
 
 on:
   push:
     branches:
-    # - master
-    - feature/add-github-actions
+    - release
 
 jobs:
   build-deploy:
@@ -24,10 +23,8 @@ jobs:
 
     - name: Build
       run: |
-        ls
         git clone https://github.com/jpescador/hugo-future-imperfect.git themes/hugo-future-imperfect
         hugo --minify
-        ls
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2
