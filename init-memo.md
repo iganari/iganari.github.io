@@ -256,3 +256,4 @@ drwxrwxrwt 12 root    root  20480 Jan 10 09:58 ../
 
 + 無料で使うには Public ではないといけない
 + でなけれな、 hosted にするか pro にするか
++ また、 GitHub 上でやる場合は master branch がさらされるので、デフォルトの brabch を master 以外に変更する
