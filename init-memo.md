@@ -202,3 +202,11 @@ docker-compose rm
 
 + GitHub Actions にて、 Hugo を Build し、かつコミットもしないといけないので、 Repository に対して、権限が無いといけない
 + 従って、GitHub Actions 内で使用する secret を用意する
+
+### 鍵の作り方
+
+https://github.com/peaceiris/actions-gh-pages#getting-started
+
+```
+ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f gh-pages -N ""
+```
