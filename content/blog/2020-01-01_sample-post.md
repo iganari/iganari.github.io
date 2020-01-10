@@ -1,10 +1,10 @@
 +++
 author = "iganari"
-categories = ["Hugo", "hoge"]
+categories = ["etc"]
 date = "2020-01-01"
 description = ""
-featured = "2020-01-01.jpg"
-featuredalt = "Pic 1"
+# featured = "20200101_hikkoshi_title_wide.png"
+featuredalt = "first_commit"
 featuredpath = "date"
 linktitle = ""
 title = "First Commit"
@@ -12,156 +12,38 @@ type = "post"
 
 +++
 
-# ブログ
+# ブログを引越しました
 
-## Step 1. Install Hugo
+{{< figure src="/img/2020/01/20200101_hikkoshi_title_wide.png" >}}
 
-Go to [hugo releases](https://github.com/spf13/hugo/releases) and download the
-appropriate version for your os and architecture.
+# はじめまして
 
-Save it somewhere specific as we will be using it in the next step.
+はじめまして。 iganari です :)
 
-More complete instructions are available at [installing hugo](/overview/installing/)
-<!--more-->
+このサイトは私が日々自ら検証し、出来たり出来なかったりした技術的な内容を主に書くブログです。
 
-## Step 2. Build the Docs
+また、他のブログサイトに書いた自分の記事の内容をアーカイブしておくためのブログでもあります。
 
-Hugo has its own example site which happens to also be the documentation site
-you are reading right now.
+今までは他のサイトを構築・運用していましたが、2020年にこのサイトにリプレースしました。
 
-Follow the following steps:
+このサイトを通じて、読んで頂いた方に何かしらの気付きがあれば嬉しいです! ;)
 
- 1. Clone the [hugo repository](http://github.com/spf13/hugo)
- 2. Go into the repo
- 3. Run hugo in server mode and build the docs
- 4. Open your browser to http://localhost:1313
+# サイトの構成
 
-Corresponding pseudo commands:
+このサイトは以下の構成・仕組みとなっています
 
-    git clone https://github.com/spf13/hugo
-    cd hugo
-    /path/to/where/you/installed/hugo server --source=./docs
-    > 29 pages created
-    > 0 tags index created
-    > in 27 ms
-    > Web Server is available at http://localhost:1313
-    > Press ctrl+c to stop
+種類 | 使用した技術
+--- | ---
+ホスティング | [GitHub Pages](https://pages.github.com/)
+Web framework | [Hugo](https://gohugo.io/)
+デプロイ方法 | [GitHub Actions](https://github.co.jp/features/actions)
 
-Once you've gotten here, follow along the rest of this page on your local build.
+ソースコードはこちらになります
 
-## Step 3. Change the docs site
++ https://github.com/iganari/iganari.github.io
 
-Stop the Hugo process by hitting ctrl+c.
+# まとめ
 
-Now we are going to run hugo again, but this time with hugo in watch mode.
+これからもよろしくお願い致します!
 
-    /path/to/hugo/from/step/1/hugo server --source=./docs --watch
-    > 29 pages created
-    > 0 tags index created
-    > in 27 ms
-    > Web Server is available at http://localhost:1313
-    > Watching for changes in /Users/spf13/Code/hugo/docs/content
-    > Press ctrl+c to stop
-
-
-Open your [favorite editor](http://vim.spf13.com) and change one of the source
-content pages. How about changing this very file to *fix the typo*. How about changing this very file to *fix the typo*.
-
-Content files are found in `docs/content/`. Unless otherwise specified, files
-are located at the same relative location as the url, in our case
-`docs/content/overview/quickstart.md`.
-
-Change and save this file.. Notice what happened in your terminal.
-
-    > Change detected, rebuilding site
-
-    > 29 pages created
-    > 0 tags index created
-    > in 26 ms
-
-Refresh the browser and observe that the typo is now fixed.
-
-Notice how quick that was. Try to refresh the site before it's finished building.. I double dare you.
-Having nearly instant feedback enables you to have your creativity flow without waiting for long builds.
-
-## Step 4. Have fun
-
-The best way to learn something is to play with it.
-
-***
-
-# 英語
-
-## Step 1. Install Hugo
-
-Go to [hugo releases](https://github.com/spf13/hugo/releases) and download the
-appropriate version for your os and architecture.
-
-Save it somewhere specific as we will be using it in the next step.
-
-More complete instructions are available at [installing hugo](/overview/installing/)
-<!--more-->
-
-## Step 2. Build the Docs
-
-Hugo has its own example site which happens to also be the documentation site
-you are reading right now.
-
-Follow the following steps:
-
- 1. Clone the [hugo repository](http://github.com/spf13/hugo)
- 2. Go into the repo
- 3. Run hugo in server mode and build the docs
- 4. Open your browser to http://localhost:1313
-
-Corresponding pseudo commands:
-
-    git clone https://github.com/spf13/hugo
-    cd hugo
-    /path/to/where/you/installed/hugo server --source=./docs
-    > 29 pages created
-    > 0 tags index created
-    > in 27 ms
-    > Web Server is available at http://localhost:1313
-    > Press ctrl+c to stop
-
-Once you've gotten here, follow along the rest of this page on your local build.
-
-## Step 3. Change the docs site
-
-Stop the Hugo process by hitting ctrl+c.
-
-Now we are going to run hugo again, but this time with hugo in watch mode.
-
-    /path/to/hugo/from/step/1/hugo server --source=./docs --watch
-    > 29 pages created
-    > 0 tags index created
-    > in 27 ms
-    > Web Server is available at http://localhost:1313
-    > Watching for changes in /Users/spf13/Code/hugo/docs/content
-    > Press ctrl+c to stop
-
-
-Open your [favorite editor](http://vim.spf13.com) and change one of the source
-content pages. How about changing this very file to *fix the typo*. How about changing this very file to *fix the typo*.
-
-Content files are found in `docs/content/`. Unless otherwise specified, files
-are located at the same relative location as the url, in our case
-`docs/content/overview/quickstart.md`.
-
-Change and save this file.. Notice what happened in your terminal.
-
-    > Change detected, rebuilding site
-
-    > 29 pages created
-    > 0 tags index created
-    > in 26 ms
-
-Refresh the browser and observe that the typo is now fixed.
-
-Notice how quick that was. Try to refresh the site before it's finished building.. I double dare you.
-Having nearly instant feedback enables you to have your creativity flow without waiting for long builds.
-
-## Step 4. Have fun
-
-The best way to learn something is to play with it.
+Have fun ! :D

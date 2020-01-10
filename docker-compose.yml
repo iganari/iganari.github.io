@@ -8,7 +8,7 @@ services:
       - "1313:1313"
     volumes:
       - ./:/usr/local/iganari/iganari.github.io
-    working_dir: /usr/local/iganari/iganari.github.io/iganari-github-io
+    working_dir: /usr/local/iganari/iganari.github.io
     # command: /bin/sh  # for Debug
     # tty: true         # for Debug
     command: hugo server --bind 0.0.0.0
