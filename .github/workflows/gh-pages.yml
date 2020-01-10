@@ -29,6 +29,7 @@ jobs:
         hugo --minify
         cd -
         ls
+        ls -la iganari-github-io
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2
