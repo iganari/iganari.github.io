@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog on ESCAPE FROM / iganari</title><link>https://iganari.github.io/blog/</link><description>Recent content in Blog on ESCAPE FROM / iganari</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://iganari.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>First Commit</title><link>https://iganari.github.io/blog/2020-01-01_sample-post/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://iganari.github.io/blog/2020-01-01_sample-post/</guid><description>&lt;h2 id="step-1-install-hugo">Step 1. Install Hugo&lt;/h2>
+&lt;p>Go to &lt;a href="https://github.com/spf13/hugo/releases">hugo releases&lt;/a> and download the
+appropriate version for your os and architecture.&lt;/p>
+&lt;p>Save it somewhere specific as we will be using it in the next step.&lt;/p>
+&lt;p>More complete instructions are available at &lt;a href="https://iganari.github.io/overview/installing/">installing hugo&lt;/a>&lt;/p></description></item><item><title>Getting Started with Hugo</title><link>https://iganari.github.io/blog/2020-01-01_sample-post.ja/</link><pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate><guid>https://iganari.github.io/blog/2020-01-01_sample-post.ja/</guid><description>&lt;h2 id="step-1-install-hugo">Step 1. Install Hugo&lt;/h2>
+&lt;p>Go to &lt;a href="https://github.com/spf13/hugo/releases">hugo releases&lt;/a> and download the
+appropriate version for your os and architecture.&lt;/p>
+&lt;p>Save it somewhere specific as we will be using it in the next step.&lt;/p>
+&lt;p>More complete instructions are available at &lt;a href="https://iganari.github.io/overview/installing/">installing hugo&lt;/a>&lt;/p></description></item></channel></rss>
