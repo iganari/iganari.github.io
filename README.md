@@ -33,7 +33,7 @@ cd iganari.github.io
 + テーマをクローンする
 
 ```
-git clone https://github.com/jpescador/hugo-future-imperfect.git iganari-github-io/themes/hugo-future-imperfect
+git clone https://github.com/jpescador/hugo-future-imperfect.git themes/hugo-future-imperfect
 ```
 
 + Docker Compose の起動
