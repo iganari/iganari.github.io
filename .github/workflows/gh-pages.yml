@@ -28,6 +28,7 @@ jobs:
         git clone https://github.com/jpescador/hugo-future-imperfect.git themes/hugo-future-imperfect
         hugo --minify
         cd -
+        ls
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2
