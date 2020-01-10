@@ -211,41 +211,41 @@ https://github.com/peaceiris/actions-gh-pages#getting-started
 ## 例
 ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f gh-pages -N ""
 
-ssh-keygen -t rsa -b 4096 -C "for https://github.com/iganari/iganari.github.io" -f id-rsa_iganari-github-io-gh-pages
+ssh-keygen -t rsa -b 4096 -C "for https://github.com/iganari/iganari.github.io" -f id_rsa-githubactions_iganari-github-io
 ```
 ```
 ### 例
 
-$ ssh-keygen -t rsa -b 4096 -C "for https://github.com/iganari/iganari.github.io" -f id-rsa_iganari-github-io-gh-pages
+$ ssh-keygen -t rsa -b 4096 -C "for https://github.com/iganari/iganari.github.io" -f id_rsa-githubactions_iganari-github-io
 Generating public/private rsa key pair.
-Enter passphrase (empty for no passphrase): 
-Enter same passphrase again: 
-Your identification has been saved in id-rsa_iganari-github-io-gh-pages.
-Your public key has been saved in id-rsa_iganari-github-io-gh-pages.pub.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in id_rsa-githubactions_iganari-github-io.
+Your public key has been saved in id_rsa-githubactions_iganari-github-io.pub.
 The key fingerprint is:
-SHA256:2SEr42UnyUyKqYy/c6lCQaU8OGqFtyTk9Y5e2p3AvvY for https://github.com/iganari/iganari.github.io
+SHA256:GwzIDgeT5SP6PIpcTNqHRekWMS9UA2pibdsw4SP3zOw for https://github.com/iganari/iganari.github.io
 The key's randomart image is:
 +---[RSA 4096]----+
-| ..o             |
-|=.+ .            |
-|+B + .  o .      |
-|.o* =o = * .     |
-|...oo=+ S o      |
-|.+..=.o=.o       |
-|o oo +.o         |
-|... o..          |
-| .+=...E         |
+|  o+.=oo         |
+|  +=+.= .        |
+| +o@*=..         |
+|..*=&.oo         |
+|.  o.X  S        |
+| o= =    o       |
+| .+= E  .        |
+|o....            |
+|o.               |
 +----[SHA256]-----+
 $
 $
 $ ls -la
 total 36
-drwxr-xr-x  2 iganari hejda  4096 Jan 10 09:49 ./
-drwxrwxrwt 12 root    root  20480 Jan 10 09:49 ../
--rw-------  1 iganari hejda  3243 Jan 10 09:49 id-rsa_iganari-github-io-gh-pages
--rw-r--r--  1 iganari hejda   774 Jan 10 09:49 id-rsa_iganari-github-io-gh-pages.pub
+drwxr-xr-x  2 iganari hejda  4096 Jan 10 09:59 ./
+drwxrwxrwt 12 root    root  20480 Jan 10 09:58 ../
+-rw-------  1 iganari hejda  3243 Jan 10 09:59 id_rsa-githubactions_iganari-github-io
+-rw-r--r--  1 iganari hejda   774 Jan 10 09:59 id_rsa-githubactions_iganari-github-io.pub
 ```
 
-+ 秘密鍵と公開鍵は[ここ]に格納
++ 秘密鍵と公開鍵は[ここ](https://gitlab.com/hejda/core/dotfiles/tree/master/ssh/key_box/iganari)に格納
 + 秘密鍵をこの Repository の Secret に設定する
   + その時の名前を `ACTIONS_DEPLOY_KEY` にする
