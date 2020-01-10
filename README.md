@@ -1,5 +1,7 @@
 # iganari.github.io
 
+![](https://github.com/iganari/github-actions-sample/workflows/Publish_GitHub_Pages/badge.svg)
+
 ## ローカルの開発方法
 
 ### とりあえず、動かしたい

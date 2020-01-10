@@ -1,6 +1,6 @@
 # refs: https://github.com/peaceiris/actions-hugo
 
-name: Publish GitHub Pages
+name: Publish_GitHub_Pages
 
 on:
   push:
