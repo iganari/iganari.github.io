@@ -249,3 +249,5 @@ drwxrwxrwt 12 root    root  20480 Jan 10 09:58 ../
 + 秘密鍵と公開鍵は[ここ](https://gitlab.com/hejda/core/dotfiles/tree/master/ssh/key_box/iganari)に格納
 + 秘密鍵をこの Repository の Secret に設定する
   + その時の名前を `ACTIONS_DEPLOY_KEY` にする
++ 公開鍵を Deploy keys に登録する
+  + こちらの名前はよしなに。
