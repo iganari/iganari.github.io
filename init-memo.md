@@ -251,3 +251,8 @@ drwxrwxrwt 12 root    root  20480 Jan 10 09:58 ../
   + その時の名前を `ACTIONS_DEPLOY_KEY` にする
 + 公開鍵を Deploy keys に登録する
   + こちらの名前はよしなに。
+  
+## Repository について
+
++ 無料で使うには Public ではないといけない
++ でなけれな、 hosted にするか pro にするか
