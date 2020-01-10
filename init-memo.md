@@ -208,5 +208,40 @@ docker-compose rm
 https://github.com/peaceiris/actions-gh-pages#getting-started
 
 ```
+## 例
 ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f gh-pages -N ""
+
+ssh-keygen -t rsa -b 4096 -C "for https://github.com/iganari/iganari.github.io" -f id-rsa_iganari-github-io-gh-pages
+```
+```
+### 例
+
+$ ssh-keygen -t rsa -b 4096 -C "for https://github.com/iganari/iganari.github.io" -f id-rsa_iganari-github-io-gh-pages
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in id-rsa_iganari-github-io-gh-pages.
+Your public key has been saved in id-rsa_iganari-github-io-gh-pages.pub.
+The key fingerprint is:
+SHA256:2SEr42UnyUyKqYy/c6lCQaU8OGqFtyTk9Y5e2p3AvvY for https://github.com/iganari/iganari.github.io
+The key's randomart image is:
++---[RSA 4096]----+
+| ..o             |
+|=.+ .            |
+|+B + .  o .      |
+|.o* =o = * .     |
+|...oo=+ S o      |
+|.+..=.o=.o       |
+|o oo +.o         |
+|... o..          |
+| .+=...E         |
++----[SHA256]-----+
+$
+$
+$ ls -la
+total 36
+drwxr-xr-x  2 iganari hejda  4096 Jan 10 09:49 ./
+drwxrwxrwt 12 root    root  20480 Jan 10 09:49 ../
+-rw-------  1 iganari hejda  3243 Jan 10 09:49 id-rsa_iganari-github-io-gh-pages
+-rw-r--r--  1 iganari hejda   774 Jan 10 09:49 id-rsa_iganari-github-io-gh-pages.pub
 ```
