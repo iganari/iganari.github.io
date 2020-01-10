@@ -191,3 +191,14 @@ docker-compose stop
 ### サービス(?)の削除(<- うまい言葉が出てこない)
 docker-compose rm
 ```
+
+## GitHub Actions を設定する
+
+### YAML
+
+よしなに
+
+### デプロイのための鍵を設定する
+
++ GitHub Actions にて、 Hugo を Build し、かつコミットもしないといけないので、 Repository に対して、権限が無いといけない
++ 従って、GitHub Actions 内で使用する secret を用意する
