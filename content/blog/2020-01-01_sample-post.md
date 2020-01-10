@@ -30,7 +30,7 @@ type = "post"
 
 # サイトの構成
 
-このサイトは以下の構成・仕組みとなっています
+このサイトは以下の構成・仕組みとなっています。
 
 種類 | 使用した技術
 --- | ---
@@ -38,7 +38,7 @@ type = "post"
 Web framework | [Hugo](https://gohugo.io/)
 デプロイ方法 | [GitHub Actions](https://github.co.jp/features/actions)
 
-ソースコードはこちらになります
+ソースコードはこちらになります。
 
 + https://github.com/iganari/iganari.github.io
 
