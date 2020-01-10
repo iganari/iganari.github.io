@@ -191,3 +191,92 @@ docker-compose stop
 ### サービス(?)の削除(<- うまい言葉が出てこない)
 docker-compose rm
 ```
+
+## GitHub Actions を設定する
+
+### YAML
+
+よしなに
+
+### デプロイのための鍵を設定する
+
++ GitHub Actions にて、 Hugo を Build し、かつコミットもしないといけないので、 Repository に対して、権限が無いといけない
++ 従って、GitHub Actions 内で使用する secret を用意する
+
+### 鍵の作り方
+
+https://github.com/peaceiris/actions-gh-pages#getting-started
+
+```
+## 例
+ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f gh-pages -N ""
+
+ssh-keygen -t rsa -b 4096 -C "for https://github.com/iganari/iganari.github.io" -f id_rsa-githubactions_iganari-github-io
+```
+```
+### 例
+
+$ ssh-keygen -t rsa -b 4096 -C "for https://github.com/iganari/iganari.github.io" -f id_rsa-githubactions_iganari-github-io
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in id_rsa-githubactions_iganari-github-io.
+Your public key has been saved in id_rsa-githubactions_iganari-github-io.pub.
+The key fingerprint is:
+SHA256:GwzIDgeT5SP6PIpcTNqHRekWMS9UA2pibdsw4SP3zOw for https://github.com/iganari/iganari.github.io
+The key's randomart image is:
++---[RSA 4096]----+
+|  o+.=oo         |
+|  +=+.= .        |
+| +o@*=..         |
+|..*=&.oo         |
+|.  o.X  S        |
+| o= =    o       |
+| .+= E  .        |
+|o....            |
+|o.               |
++----[SHA256]-----+
+$
+$
+$ ls -la
+total 36
+drwxr-xr-x  2 iganari hejda  4096 Jan 10 09:59 ./
+drwxrwxrwt 12 root    root  20480 Jan 10 09:58 ../
+-rw-------  1 iganari hejda  3243 Jan 10 09:59 id_rsa-githubactions_iganari-github-io
+-rw-r--r--  1 iganari hejda   774 Jan 10 09:59 id_rsa-githubactions_iganari-github-io.pub
+```
+
++ 秘密鍵と公開鍵は[ここ](https://gitlab.com/hejda/core/dotfiles/tree/master/ssh/key_box/iganari)に格納
++ 秘密鍵をこの Repository の Secret に設定する
+  + その時の名前を `ACTIONS_DEPLOY_KEY` にする
++ 公開鍵を Deploy keys に登録する
+  + こちらの名前はよしなに。
+  
+## Repository について
+
++ 無料で使うには Public ではないといけない
++ でなけれな、 hosted にするか pro にするか
++ また、 GitHub 上でやる場合は master branch がさらされるので、デフォルトの brabch を master 以外に変更する
+
+## 全体の PATH を変えるために iganari-github-io にあったファイルをすべて、  root ディレクトリに移す
+
+```
+$ tree -L 2
+.
+├── README.md
+├── archetypes
+│   └── default.md
+├── config.toml
+├── content
+│   ├── about
+│   └── blog
+├── docker-compose.yml
+├── init-memo.md
+├── static
+│   └── img
+└── themes
+
+7 directories, 5 files
+```
+
+## GitHub Actions も修正する
