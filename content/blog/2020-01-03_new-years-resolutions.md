@@ -20,7 +20,7 @@ type = "post"
 
 # 2019年の振り返りと2020年のこれから 
 
-{{< figure src="/img/2020/01/20200101_hikkoshi_title_wide.png" >}}
+{{< figure src="/img/2020/01/20200103_new-years-resolutions.png" >}}
 
 新年あけましておめでとうございます🎍
 
