@@ -245,3 +245,7 @@ drwxrwxrwt 12 root    root  20480 Jan 10 09:49 ../
 -rw-------  1 iganari hejda  3243 Jan 10 09:49 id-rsa_iganari-github-io-gh-pages
 -rw-r--r--  1 iganari hejda   774 Jan 10 09:49 id-rsa_iganari-github-io-gh-pages.pub
 ```
+
++ 秘密鍵と公開鍵は[ここ]に格納
++ 秘密鍵をこの Repository の Secret に設定する
+  + その時の名前を `ACTIONS_DEPLOY_KEY` にする
