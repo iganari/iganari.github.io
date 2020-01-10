@@ -246,7 +246,6 @@ drwxrwxrwt 12 root    root  20480 Jan 10 09:58 ../
 -rw-r--r--  1 iganari hejda   774 Jan 10 09:59 id_rsa-githubactions_iganari-github-io.pub
 ```
 
-+ 秘密鍵と公開鍵は[ここ](https://gitlab.com/hejda/core/dotfiles/tree/master/ssh/key_box/iganari)に格納
 + 秘密鍵をこの Repository の Secret に設定する
   + その時の名前を `ACTIONS_DEPLOY_KEY` にする
 + 公開鍵を Deploy keys に登録する
@@ -255,8 +254,8 @@ drwxrwxrwt 12 root    root  20480 Jan 10 09:58 ../
 ## Repository について
 
 + 無料で使うには Public ではないといけない
-+ でなけれな、 hosted にするか pro にするか
-+ また、 GitHub 上でやる場合は master branch がさらされるので、デフォルトの brabch を master 以外に変更する
+  + でなけれな、 hosted にするか pro にするか
++ また、 GitHub 上でやる場合は master branch が晒されるので、デフォルトの branch を master 以外に変更する
 
 ## 全体の PATH を変えるために iganari-github-io にあったファイルをすべて、  root ディレクトリに移す
 
