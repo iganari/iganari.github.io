@@ -22,7 +22,6 @@ type = "post"
 
 {{< figure src="/img/2020/01/20200104_smartphone_cover.png" >}}
 
-
 新年になって初めての買い物は下記のノートPC用のハードケースです。
 
 Belk New MacBook Air 2018 13 インチ ケース
