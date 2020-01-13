@@ -1,4 +1,26 @@
++++
+author = "iganari"
+categories = ["Raspberry Pi", "Node-RED", "tech"]
+date = "2020-01-13"
+description = ""
+# featured = "20200101_hikkoshi_title_wide.png"
+featuredalt = "node-red_to_line_bot_part_1"
+featuredpath = "date"
+linktitle = ""
+title = "Node-RED to LINE Bot Part 1 [日本語版]"
+type = "post"
+
++++
+
+# 注意点
+
+この記事は下記の記事のアーカイブです ;)
+
++ https://iganari.hatenablog.com/entry/2020/01/13/212830
+
 # Node-REDから LINE Bot に Push してみる Part.1
+
+image
 
 # やりたいこと
 
@@ -13,7 +35,7 @@
 
 筐体は昔に使っていた Raspberry Pi 3 Model B を使用します。
 
-[https://twitter.com/iganari_/status/1211203592666804224:embed]
+{{< tweet 1211203592666804224 >}}
 
 下記を参考にして microSD を初期化し、Rasbian を microSD に焼いていきます。
 
@@ -125,7 +147,7 @@ $ diskutil list
 
 この microSD を Raspberry Pi に挿入して、起動してみます。
 
-[https://twitter.com/iganari_/status/1213207593591554048:embed]
+{{< tweet 1213207593591554048 >}}
 
 やっと、起動に成功しました!!
 
