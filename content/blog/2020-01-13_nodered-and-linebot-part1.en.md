@@ -1,4 +1,25 @@
++++
+author = "iganari"
+categories = ["Raspberry Pi", "Node-RED", "tech", "English"]
+date = "2020-01-13"
+description = ""
+# featured = "20200101_hikkoshi_title_wide.png"
+featuredalt = "node-red_to_line_bot_part_1 en"
+featuredpath = "date"
+linktitle = ""
+title = "Node-RED to LINE Bot Part 1 [英語版]"
+type = "post"
++++
+
+# Attention
+
+This is an archive of the articles below ;)
+
++ https://dev.to/iganari/try-push-line-bot-from-node-red-part-1-52f6
+
 # Try push LINE Bot From Node-RED Part.1 
+
+{{< figure src="/img/2020/01/20200113_computer_jisaku_bunkai.png" >}}
 
 # Goal
 
@@ -13,7 +34,7 @@ Split the article into several pieces, because the contents is long.
 
 I use raspberry Pi 3 Model B what was used in the past.
 
-[https://twitter.com/iganari_/status/1211203592666804224:embed]
+{{< tweet 1211203592666804224 >}}
 
 Refer to the following to initialize the microSD, Write Rasbian on microSD.
 
@@ -126,7 +147,7 @@ You can see that `Linux` has been added to `/ dev / disk2`.
 
 Next, you insert this microSD in Raspberry Pi, and Power on.
 
-[https://twitter.com/iganari_/status/1213207593591554048:embed]
+{{< tweet 1213207593591554048 >}}
 
 Success!!
 

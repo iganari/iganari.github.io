@@ -4,12 +4,11 @@ categories = ["Raspberry Pi", "Node-RED", "tech"]
 date = "2020-01-13"
 description = ""
 # featured = "20200101_hikkoshi_title_wide.png"
-featuredalt = "node-red_to_line_bot_part_1"
+featuredalt = "node-red_to_line_bot_part_1 ja"
 featuredpath = "date"
 linktitle = ""
 title = "Node-RED to LINE Bot Part 1 [日本語版]"
 type = "post"
-
 +++
 
 # 注意点
@@ -20,7 +19,7 @@ type = "post"
 
 # Node-REDから LINE Bot に Push してみる Part.1
 
-image
+{{< figure src="/img/2020/01/20200113_computer_jisaku_bunkai.png" >}}
 
 # やりたいこと
 
