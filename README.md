@@ -51,10 +51,19 @@ http://127.0.0.1:1313
 
 ```
 ### docker-compose.yml の修正
+vim docker-compose.yml
 
-command: /bin/sh  # for Debug                  <--- この行のコメントアウトを取る
-tty: true         # for Debug                  <--- この行のコメントアウトを取る
-# command: hugo server --bind 0.0.0.0          <--- この行をコメントアウトする
+---------------------------------------
+# command: /bin/sh  # for Debug                <--- この行のコメントアウトを取る
+# tty: true         # for Debug                <--- この行のコメントアウトを取る
+command: hugo server --bind 0.0.0.0            <--- この行をコメントアウトする
+---------------------------------------
+↓
+---------------------------------------
+command: /bin/sh  # for Debug
+tty: true         # for Debug
+# command: hugo server --bind 0.0.0.0
+---------------------------------------
 
 
 
