@@ -89,6 +89,7 @@ nodered-docker-compose   npm start -- --userDir /data   Up (health: starting)   
   + http://127.0.0.1:1880
 
 ![](../images/update-nodered-container-01.png)
+{{< figure src="/img/2020/02/200206-update-nodered-container-01.png" >}}
 
 + 停止も docker-compose コマンドで行います。
 
