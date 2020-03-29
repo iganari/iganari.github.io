@@ -1,6 +1,6 @@
 +++
 author = "iganari"
-categories = ["Node-RED", "Docker", "Docker Compose"]
+categories = ["macOS", "Raspberry Pi", "VNC Server"]
 date = "2020-02-22"
 description = ""
 featuredalt = "vnc-raspberrypi-from-macos ja"
@@ -76,30 +76,30 @@ Raspberry Pi 側 の設定は以上です。
 
 https://www.realvnc.com/en/connect/download/viewer/
 
-{{< figure src="/img/2020/02/200218-vnc-raspberrypi-from-macos-01" >}}
+{{< figure src="/img/2020/02/200218-vnc-raspberrypi-from-macos-01.png" >}}
 
-{{< figure src="/img/2020/02/200218-vnc-raspberrypi-from-macos-02" >}}
+{{< figure src="/img/2020/02/200218-vnc-raspberrypi-from-macos-02.png" >}}
 
 + Applications にコピーしましょう。
 
-{{< figure src="/img/2020/02/200218-vnc-raspberrypi-from-macos-03" >}}
+{{< figure src="/img/2020/02/200218-vnc-raspberrypi-from-macos-03.png" >}}
 
 + その後、Launchpad から VNC Viewer を起動し、Raspberry Pi の IP アドレス (= 192.168.202.118) を入れ、Enter を押します。
 
-{{< figure src="/img/2020/02/200218-vnc-raspberrypi-from-macos-04" >}}
+{{< figure src="/img/2020/02/200218-vnc-raspberrypi-from-macos-04.png" >}}
 
 + 初回は下記のような確認画面が出ますので、確認して続けましょう。
 
-{{< figure src="/img/2020/02/200218-vnc-raspberrypi-from-macos-05" >}}
+{{< figure src="/img/2020/02/200218-vnc-raspberrypi-from-macos-05.png" >}}
 
 + Raspberry Pi にログイン出来るユーザ名とパスワードをいれます。
   + この時、VNC 用のユーザの新規作成は必要ありません。
 
-{{< figure src="/img/2020/02/200218-vnc-raspberrypi-from-macos-06" >}}
+{{< figure src="/img/2020/02/200218-vnc-raspberrypi-from-macos-06.png" >}}
 
 + 無事、VNC クライアントを用いて macOS から Raspberry Pi にアクセスすることが出来るようになりました。
 
-{{< figure src="/img/2020/02/200218-vnc-raspberrypi-from-macos-07" >}}
+{{< figure src="/img/2020/02/200218-vnc-raspberrypi-from-macos-07.png" >}}
 
 # まとめ
 
