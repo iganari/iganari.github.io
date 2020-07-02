@@ -31,6 +31,8 @@ GCP には組織リソースという概念があります
 + 03
   + 自分の組織配下にフォルダとプロジェクトを作ってみる
 
+## Resource hierarchy
 
-Resource hierarchy
 https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy?hl=en
+
+![](https://cloud.google.com/resource-manager/img/cloud-folders-hierarchy.png)
