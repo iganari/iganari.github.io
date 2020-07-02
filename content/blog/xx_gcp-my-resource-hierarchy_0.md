@@ -16,8 +16,6 @@ type = "post"
 
 + https://iganari.hatenablog.com/entry/2020/02/22/110953
 
-# macOS から Raspberry Pi に画面共有したい
-
 # やること
 
 GCP には組織リソースという概念があります
