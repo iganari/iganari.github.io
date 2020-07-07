@@ -18,5 +18,11 @@ type = "post"
 
 # サマリ
 
-+ GCP にはリソース階層 (Resource Hierarky) というものがある
++ GCP にはリソース階層 (Resource Hierarchy) というものがある
 + ユーザとリソース階層の理解
+
+# Resource hierarchy
+
+https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy?hl=en
+
+![](https://cloud.google.com/resource-manager/img/cloud-folders-hierarchy.png)
