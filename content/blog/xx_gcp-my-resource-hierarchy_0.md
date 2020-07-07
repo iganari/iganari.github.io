@@ -20,7 +20,7 @@ type = "post"
 
 GCP には組織リソースという概念があります
 
-それを自分なりに理解したのでまとめます
+それを自分なりに理解するためにまとめを作りたいと思います
 
 + 01
   + GCP のリソース階層を理解する
@@ -29,8 +29,4 @@ GCP には組織リソースという概念があります
 + 03
   + 自分の組織配下にフォルダとプロジェクトを作ってみる
 
-## Resource hierarchy
 
-https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy?hl=en
-
-![](https://cloud.google.com/resource-manager/img/cloud-folders-hierarchy.png)
