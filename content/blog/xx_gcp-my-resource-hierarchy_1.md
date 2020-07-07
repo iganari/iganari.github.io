@@ -12,12 +12,11 @@ type = "post"
 
 # 注意点
 
-この記事は下記の記事のアーカイブです ;)
+:warning: この記事は 2020 年 7 月の情報を元にしています。
 
-+ https://iganari.hatenablog.com/entry/2020/02/22/110953
+# GCP のリソース階層を理解する
 
-# macOS から Raspberry Pi に画面共有したい
+# サマリ
 
-# やること 1
-
-hogehoge
++ GCP にはリソース階層 (Resource Hierarky) というものがある
++ ユーザとリソース階層の理解
