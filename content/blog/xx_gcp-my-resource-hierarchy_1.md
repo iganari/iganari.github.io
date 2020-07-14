@@ -26,3 +26,27 @@ type = "post"
 https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy?hl=en
 
 ![](https://cloud.google.com/resource-manager/img/cloud-folders-hierarchy.png)
+
++ 私達が通常使用する GCP リソースは GCP プロジェクトに紐付いている
++ GCP プロジェクト自体はその中で完結してアプリを動かすことが出来る
+  + GCP プロジェクトを跨いでアプリを動かすことが出来る
+  + GCP においてはプロジェクトは要件ごとに割とサクサク作って運用することが望ましい(たぶん)
++ GCP プロジェクトを管理する機構が存在する
+  + 組織(とフォルダ)である
+  + 複数の GCP プロジェクトを意味のある単位でまとめることで、より運用に適した管理が出来るようになる
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
