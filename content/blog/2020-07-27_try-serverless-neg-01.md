@@ -49,10 +49,15 @@ cd package-gcp/compute/networkendpointgroups/serverless
 
 # Cloud Run のサンプルの準備
 
-+ Cloud Run 上で使用するコンテナイメージを Google Container Registry (GCR) にデプロイします。
++ Cloud Run のサンプルコードがあるディレクトリに移動します。
 
 ```
 cd cloudrun
+```
+
++ Cloud Run 上で使用するコンテナイメージを Google Container Registry (GCR) にデプロイします。
+
+```
 gcloud builds submit --tag gcr.io/${_pj_id}/${_common}-run
 ```
 
@@ -87,13 +92,20 @@ Service [check-serverless-neg-run] revision [check-serverless-neg-run-00001-lut]
 
 https://check-serverless-neg-run-3umtulj4sq-an.a.run.app
 
+IMG
 
 
+```
+cd -
+```
+
+# App Engine のサンプルの準備
 
 
+WIP
 
 
+# Cloud Functions のサンプルの準備
 
-
-
+WIP
 
