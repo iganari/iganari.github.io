@@ -6,7 +6,7 @@ description = ""
 featuredalt = "Try Serverless NEG 00"
 featuredpath = "date"
 linktitle = ""
-title = "Serverless NEG を試す ~Serverless NEG とは~"
+title = "Serverless NEG を試す ~Serverless NEG とは?~"
 type = "post"
 +++
 
