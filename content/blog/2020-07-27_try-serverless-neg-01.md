@@ -101,11 +101,51 @@ cd -
 
 # App Engine のサンプルの準備
 
+```
+cd appengine
+```
+```
+cat app.yaml.sample | sed "s/YOUR_SERVICE/${_common}-app/g" > app.yaml
+```
+```
+gcloud app deploy
+```
+```
+gcloud app browse -s ${_common}-app
+```
+```
+### Ex.
 
-WIP
+# gcloud app browse -s ${_common}-app
+Did not detect your browser. Go to this link to view your app:
+https://check-serverless-neg-app-dot-[~~~~~~~~~~].an.r.appspot.com
+```
+```
+cd -
+```
 
 
 # Cloud Functions のサンプルの準備
 
-WIP
+```
+cd functions
+```
+```
+gcloud functions deploy func \
+  --runtime python38 \
+  --trigger-http \
+  --region asia-northeast1 \
+  --allow-unauthenticated
+```
+```
+cd -
+```
+
+# まとめ
+
+これで Serverless NEG の backend に設定する Cloud RUN, App Engine, Cloud Functions の準備が出来ました!!
+
+次は hogeghoge をやっていきます!
+
+Have fun! :)
 
