@@ -49,7 +49,7 @@ cd package-gcp/compute/networkendpointgroups/serverless
 
 # やること
 
-Serverless NEG の backend に設定する Cloud RUN, App Engine, Cloud Functions の準備をします。
++ Serverless NEG の backend に設定する Cloud RUN, App Engine, Cloud Functions の準備をします。
 
 # Cloud Run のサンプルの準備
 

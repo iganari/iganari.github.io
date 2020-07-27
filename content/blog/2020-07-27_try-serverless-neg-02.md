@@ -49,7 +49,7 @@ cd package-gcp/compute/networkendpointgroups/serverless
 
 # やること
 
-External HTTP(S) Load Balancer で使用するサブドメインの準備をします。
++ External HTTP(S) Load Balancer で使用するサブドメインの準備をします。
 
 # 静的 IP アドレスの準備
 
