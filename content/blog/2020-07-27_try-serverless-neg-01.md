@@ -92,8 +92,7 @@ Service [check-serverless-neg-run] revision [check-serverless-neg-run-00001-lut]
 
 https://check-serverless-neg-run-3umtulj4sq-an.a.run.app
 
-IMG
-
+{{< figure src="/img/2020/07/try-serverless-neg_sample-run.png" >}}
 
 ```
 cd -
@@ -120,6 +119,9 @@ gcloud app browse -s ${_common}-app
 Did not detect your browser. Go to this link to view your app:
 https://check-serverless-neg-app-dot-[~~~~~~~~~~].an.r.appspot.com
 ```
+
+{{< figure src="/img/2020/07/try-serverless-neg_sample-app.png" >}}
+
 ```
 cd -
 ```
@@ -137,6 +139,10 @@ gcloud functions deploy func \
   --region asia-northeast1 \
   --allow-unauthenticated
 ```
+
+
+{{< figure src="/img/2020/07/try-serverless-neg_sample-app.func" >}}
+
 ```
 cd -
 ```
