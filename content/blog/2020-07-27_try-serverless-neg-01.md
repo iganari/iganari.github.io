@@ -94,21 +94,34 @@ https://check-serverless-neg-run-3umtulj4sq-an.a.run.app
 
 {{< figure src="/img/2020/07/try-serverless-neg_sample-run.png" >}}
 
++ ルートディレクトリに戻ります。
+
 ```
 cd -
 ```
 
 # App Engine のサンプルの準備
 
++ App Engine のサンプルコードがあるディレクトリに移動します。
+
 ```
 cd appengine
 ```
+
++ サンプルから app.yaml を作成します。
+
 ```
 cat app.yaml.sample | sed "s/YOUR_SERVICE/${_common}-app/g" > app.yaml
 ```
+
++ App Engine にアプリをデプロイします。
+
 ```
 gcloud app deploy
 ```
+
++ デプロイしたアプリの URL を確認します。
+
 ```
 gcloud app browse -s ${_common}-app
 ```
@@ -121,6 +134,8 @@ https://check-serverless-neg-app-dot-[~~~~~~~~~~].an.r.appspot.com
 ```
 
 {{< figure src="/img/2020/07/try-serverless-neg_sample-app.png" >}}
+
++ ルートディレクトリに戻ります。
 
 ```
 cd -
@@ -142,6 +157,8 @@ gcloud functions deploy func \
 
 
 {{< figure src="/img/2020/07/try-serverless-neg_sample-app.func" >}}
+
++ ルートディレクトリに戻ります。
 
 ```
 cd -
