@@ -176,6 +176,6 @@ cd -
 
 これで Serverless NEG の backend に設定する Cloud RUN, App Engine, Cloud Functions の準備が出来ました!!
 
-次は [サブドメインの設定]() をやっていきます!
+次は [サブドメインの設定](https://iganari.github.io/blog/2020-07-27_try-serverless-neg-02/) をやっていきます!
 
 Have fun! :)

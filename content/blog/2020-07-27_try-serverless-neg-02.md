@@ -87,6 +87,6 @@ gcloud compute addresses describe ${_common}-example-ip \
 
 これで External HTTP(S) Load Balancer で使用するサブドメインの準備が出来ました!!
 
-次は [External HTTP(S) Load Balancer の作成]() をやっていきます!
+次は [External HTTP(S) Load Balancer の作成](https://iganari.github.io/blog/2020-07-27_try-serverless-neg-03/) をやっていきます!
 
 Have fun! :)

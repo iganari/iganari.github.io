@@ -295,11 +295,10 @@ Check the resources with a Web browser.
 
 {{< figure src="/img/2020/07/try-serverless-neg_07.png" >}}
 
-
 # まとめ
 
 これで Serverless NEG を使った External HTTP(S) Load Balancer の作成が出来ました!!
 
-最後に [リソースの削除]() をします。
+最後に [リソースの削除](https://iganari.github.io/blog/2020-07-27_try-serverless-neg-04/) をします。
 
 Have fun! :)
