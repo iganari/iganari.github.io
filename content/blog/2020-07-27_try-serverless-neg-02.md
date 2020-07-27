@@ -16,12 +16,11 @@ type = "post"
 
 適宜、興味のある記事を参照して下さい。
 
-+ [Serverless NEG とは?]()
-+ [Cloud RUN, App Engine, Cloud Functions の準備]()
-+ [サブドメインの設定]()
-  + 本記事
-+ [External HTTP(S) Load Balancer の作成]()
-+ [リソースの削除]()
++ [Serverless NEG とは?](https://iganari.github.io/blog/2020-07-27_try-serverless-neg-00/)
++ [Cloud RUN, App Engine, Cloud Functions の準備](https://iganari.github.io/blog/2020-07-27_try-serverless-neg-01/)
++ <本記事> [サブドメインの設定](https://iganari.github.io/blog/2020-07-27_try-serverless-neg-02/)
++ [External HTTP(S) Load Balancer の作成](https://iganari.github.io/blog/2020-07-27_try-serverless-neg-03/)
++ [リソースの削除](https://iganari.github.io/blog/2020-07-27_try-serverless-neg-04/)
 
 # 事前準備
 
