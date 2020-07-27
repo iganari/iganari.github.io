@@ -19,7 +19,7 @@ type = "post"
 + [Serverless NEG とは?]()
   + 本記事
 + [Cloud RUN, App Engine, Cloud Functions の準備]()
-+ [ドメインの準備]()
++ [サブドメインの設定]()
 + [External HTTP(S) Load Balancer の作成]()
 + [リソースの削除]()
 

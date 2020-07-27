@@ -19,11 +19,11 @@ type = "post"
 + [Serverless NEG とは?]()
 + [Cloud RUN, App Engine, Cloud Functions の準備]()
   + 本記事
-+ [ドメインの準備]()
++ [サブドメインの設定]()
 + [External HTTP(S) Load Balancer の作成]()
 + [リソースの削除]()
 
-## 事前準備
+# 事前準備
 
 + GCP との認証をします。
 
@@ -46,6 +46,10 @@ cd [Your WorkSpace]
 git clone https://github.com/iganari/package-gcp.git
 cd package-gcp/compute/networkendpointgroups/serverless
 ```
+
+# やること
+
+Serverless NEG の backend に設定する Cloud RUN, App Engine, Cloud Functions の準備をします。
 
 # Cloud Run のサンプルの準備
 
@@ -125,7 +129,7 @@ gcloud app deploy
 gcloud app browse -s ${_common}-app
 ```
 ```
-### Ex.
+### 例
 
 # gcloud app browse -s ${_common}-app
 Did not detect your browser. Go to this link to view your app:
@@ -143,7 +147,6 @@ https://check-serverless-neg-app-dot-[~~~~~~~~~~].an.r.appspot.com
 ```
 cd -
 ```
-
 
 # Cloud Functions のサンプルの準備
 
@@ -174,7 +177,6 @@ cd -
 
 これで Serverless NEG の backend に設定する Cloud RUN, App Engine, Cloud Functions の準備が出来ました!!
 
-次は hogeghoge をやっていきます!
+次は [サブドメインの設定]() をやっていきます!
 
 Have fun! :)
-
