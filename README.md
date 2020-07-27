@@ -15,10 +15,9 @@
 
 ## デプロイ方法
 
-+ `release` branch に対して、PR を作りマージする
-  + 推奨は `develop` branch から、 `release` branch に PR を作成する
-+ GitHub Actions を通じて、`release` branch から、 `master` branch に自動マージが実行される
-+ `master` branch = https://iganari.github.io/ となる
+1. `release` branch に対して、PR を作りマージする(推奨は `develop` branch から、 `release` branch に PR を作成する)
+1. GitHub Actions を通じて、`release` branch から、 `master` branch に自動マージが実行される
+1. `master` branch = https://iganari.github.io/ となる
 
 ## ローカルの開発方法
 
