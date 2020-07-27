@@ -89,8 +89,7 @@ Service [check-serverless-neg-run] revision [check-serverless-neg-run-00001-lut]
 
 + Web ブラウザで確認します。
   + 上述のデプロイコマンドの出力結果に以下の URL が出力されています。
-
-https://check-serverless-neg-run-3umtulj4sq-an.a.run.app
+  + https://check-serverless-neg-run-3umtulj4sq-an.a.run.app
 
 {{< figure src="/img/2020/07/try-serverless-neg_sample-run.png" >}}
 
@@ -133,6 +132,10 @@ Did not detect your browser. Go to this link to view your app:
 https://check-serverless-neg-app-dot-[~~~~~~~~~~].an.r.appspot.com
 ```
 
++ Web ブラウザで確認します。
+  + 上述のデプロイコマンドの出力結果に以下の URL が出力されています。
+  + https://check-serverless-neg-app-dot-[~~~~~~~~~~].an.r.appspot.com
+
 {{< figure src="/img/2020/07/try-serverless-neg_sample-app.png" >}}
 
 + ルートディレクトリに戻ります。
@@ -155,8 +158,11 @@ gcloud functions deploy func \
   --allow-unauthenticated
 ```
 
++ Web ブラウザで確認します。
+  + GCP コンソールから、Functions の URL を確認することが出来ます。
+  + https://check-serverless-neg-app-dot-[~~~~~~~~~~].an.r.appspot.com
 
-{{< figure src="/img/2020/07/try-serverless-neg_sample-app.func" >}}
+{{< figure src="/img/2020/07/try-serverless-neg_sample-func.png" >}}
 
 + ルートディレクトリに戻ります。
 
