@@ -38,6 +38,12 @@ export _pj_id='Your GCP Project ID'
 export _common='check-serverless-neg'
 ```
 
++ GCP Project の設定をしておきます。
+
+```
+gcloud config set project ${_pj_id}
+```
+
 + サンプルコードをダウンロードし、本記事のサンプルコードが格納しているディレクトリに移動します。
 
 ```
