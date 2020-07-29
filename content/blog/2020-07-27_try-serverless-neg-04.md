@@ -38,6 +38,12 @@ export _pj_id='Your GCP Project ID'
 export _common='check-serverless-neg'
 ```
 
++ GCP Project の設定をしておきます。
+
+```
+gcloud config set project ${_pj_id}
+```
+
 + サンプルコードをダウンロードし、本記事のサンプルコードが格納しているディレクトリに移動します。
 
 ```
@@ -52,6 +58,8 @@ cd package-gcp/compute/networkendpointgroups/serverless
 
 # リソースの削除
 
++ LB リソースの削除
+
 ```
 gcloud compute forwarding-rules delete ${_common}-https-content-rule --global
 
@@ -63,10 +71,26 @@ gcloud compute url-maps remove-path-matcher ${_common}-url-map --path-matcher-na
 
 gcloud compute url-maps delete ${_common}-url-map 
 
-gcloud compute backend-services delete ${_common}-backend-service --global
+gcloud compute backend-services delete ${_common}-backend-service-run --global
 
-gcloud beta compute network-endpoint-groups delete ${_common}-serverless-neg --region=asia-northeast1 
+gcloud compute backend-services delete ${_common}-backend-service-app --global
 
+gcloud compute backend-services delete ${_common}-backend-service-func --global
+```
+
++ Serverless NEG リソースの削除
+
+```
+gcloud beta compute network-endpoint-groups delete ${_common}-serverless-neg-run --region=asia-northeast1
+
+gcloud beta compute network-endpoint-groups delete ${_common}-serverless-neg-app --region=asia-northeast1 
+
+gcloud beta compute network-endpoint-groups delete ${_common}-serverless-neg-func --region=asia-northeast1 
+```
+
++ 静的 IP アドレスの開放
+
+```
 gcloud compute addresses delete ${_common}-example-ip --global
 ```
 
