@@ -243,9 +243,19 @@ check-serverless-neg-www-ssl-cert  MANAGED  2020-07-26T00:35:54.246-07:00       
     check-serverless-neg.hejda.org: PROVISIONING
 ```
 
+## Target HTTP(S) Proxy の作成
+
++ リクエストを URL map にルーティングする Target HTTP(S) Proxy を作成します。
+
+```
+gcloud compute target-https-proxies create ${_common}-https-proxy \
+    --ssl-certificates=${_common}-www-ssl-cert \
+    --url-map=${_common}-url-map
+```
+
 ## Load Balancer で使用する Forwarding Rule の作成
 
-+ リクエストをプロクシにルーティングする forwarding rule を作成します。
++ リクエストを Target HTTP(S) Proxy にルーティングする Forwarding Rule を作成します。
 
 ```
 gcloud compute forwarding-rules create ${_common}-https-content-rule \
