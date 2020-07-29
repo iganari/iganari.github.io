@@ -5,6 +5,7 @@
 </code></pre><ul><li>GCP コマンドのため、環境変数を設定しておきます。</li></ul><pre><code>### New Setting
 export _pj_id='Your GCP Project ID'
 export _common='check-serverless-neg'
+</code></pre><ul><li>GCP Project の設定をしておきます。</li></ul><pre><code>gcloud config set project ${_pj_id}
 </code></pre><ul><li>サンプルコードをダウンロードし、本記事のサンプルコードが格納しているディレクトリに移動します。</li></ul><pre><code>cd [Your WorkSpace]
 git clone https://github.com/iganari/package-gcp.git
 cd package-gcp/compute/networkendpointgroups/serverless
