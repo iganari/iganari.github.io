@@ -9,12 +9,15 @@
 
 ## 説明
 
-個人ブログのソースコードです。
++ 個人ブログのソースコードです。
++ Hugo とそのテンプレートを使って構築しています。
++ ホスティングは GitHub Pages にて行っています。
 
-Hugo とそのテンプレートを使って構築しています。
+## デプロイ方法
 
-ホスティングは GitHub Pages にて行っています。
-
+1. `release` branch に対して、PR を作りマージする(推奨は `develop` branch から、 `release` branch に PR を作成する)
+1. GitHub Actions を通じて、`release` branch から、 `master` branch に自動マージが実行される
+1. `master` branch = https://iganari.github.io/ となる
 
 ## ローカルの開発方法
 
