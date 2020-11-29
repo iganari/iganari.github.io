@@ -280,13 +280,17 @@ kubectl 1.16.13
 {{< figure src="/img/2020/11/vcode-devcontainer-17.png" >}}
 
 
-# まとめ
+作業はここまでです!!
 
 お疲れさまでした :)
+
+# まとめ
+
+
 
 repository に置いておきたい dev container の基礎的な設定が完了しました
 
 後は、使いやすいようにカスタマイズしていきましょう!
 
 
-Have fun !
+Have fun ! :)
