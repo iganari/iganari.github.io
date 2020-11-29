@@ -64,17 +64,28 @@ https://github.com/iganari/devcontainer_sample
 
 今回は `vscode-test` という空のディレクトリを予め用意し、それを開きます
 
-
-
-
 {{< figure src="/img/2020/11/vcode-devcontainer-01.png" >}}
-
-
 {{< figure src="/img/2020/11/vcode-devcontainer-02.png" >}}
+
+### 左下のメニューをクリック
+
+ディレクトリを開くと最下部が紫から青に変わる
+
 {{< figure src="/img/2020/11/vcode-devcontainer-03.png" >}}
+
+### WIP
+
 {{< figure src="/img/2020/11/vcode-devcontainer-04.png" >}}
+
+### Docker from Docker を選択
+
 {{< figure src="/img/2020/11/vcode-devcontainer-05.png" >}}
+
+### 全部選択
+
 {{< figure src="/img/2020/11/vcode-devcontainer-06.png" >}}
+
+### `.devcontaner` が追加されました
 
 
 ```
@@ -90,22 +101,27 @@ vscode-test
 2 directories, 4 files
 ```
 
++ git の登録をしておきます
 
-
-
-### 左下のメニュー(?)をクリック
+```
+git init .
+```
 
 {{< figure src="/img/2020/11/vcode-devcontainer-07.png" >}}
 
-### `Remote - Container` をクリック
+### 左下のメニュー(?)をクリック
 
 {{< figure src="/img/2020/11/vcode-devcontainer-08.png" >}}
+
+### `Remote - Container` をクリック
+
+{{< figure src="/img/2020/11/vcode-devcontainer-09.png" >}}
 
 ### VS Code が再読み込みを行います
 
 正常に再読み込み出来ると左下に `Dev Container` と出ます
 
-{{< figure src="/img/2020/11/vcode-devcontainer-09.png" >}}
+{{< figure src="/img/2020/11/vcode-devcontainer-10.png" >}}
 
 ### docker のテスト
 
@@ -113,7 +129,7 @@ docker コマンドが実行可能だということが分かる
 
 ホストマシンの Docker と連動しているのがわかります
 
-{{< figure src="/img/2020/11/vcode-devcontainer-10.png" >}}
+{{< figure src="/img/2020/11/vcode-devcontainer-11.png" >}}
 
 
 ```
@@ -143,13 +159,13 @@ b15c433ecbad        vsc-vscode-test-3cb0b3ccaa4656c8c325ac5c9e357dcd   "/usr/loc
 
 + `Remote-Containers: Reopen in Container` をクリック
 
-{{< figure src="/img/2020/11/vcode-devcontainer-11.png" >}}
+{{< figure src="/img/2020/11/vcode-devcontainer-12.png" >}}
 
 ### 確認
 
 Dev Container の中では root になっていることを確認
 
-{{< figure src="/img/2020/11/vcode-devcontainer-12.png" >}}
+{{< figure src="/img/2020/11/vcode-devcontainer-13.png" >}}
 
 
 
@@ -159,9 +175,9 @@ WIP
 
 ### 拡張機能を探す
 
-{{< figure src="/img/2020/11/vcode-devcontainer-13.png" >}}
-
 {{< figure src="/img/2020/11/vcode-devcontainer-14.png" >}}
+
+{{< figure src="/img/2020/11/vcode-devcontainer-15.png" >}}
 
 ### json を修正
 
@@ -193,45 +209,71 @@ WIP
 
 + GitLens と Git Graph が入っていることが分かる
 
-{{< figure src="/img/2020/11/vcode-devcontainer-15.png" >}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+{{< figure src="/img/2020/11/vcode-devcontainer-16.png" >}}
 
 
 # ホストをマウントしてみる
 
++ `.ssh` というディレクトリと `.gitconfig` というファイルをマウント
 
+### `devcontainer.json` を編集
 
++ Before
 
-### ssh の設定をマウント
+```
+"mounts": [ "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind" ],
+```
 
-WIP
++ After
+
+```
+"mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
+    "source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached",   
+],
+```
+
+### 反映
+
+contaienr のリビルド
 
 -> 反映
 
+
+
+
+
 # Dockerfile を修正して機能を追加する
 
-WIP
+gcloud コマンドを入れてみます
 
+### Dockerfile をアップデート
+
++ 下記を Dockerfile の最後に追加
+
+```
+RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+RUN apt-get update && apt-get install -y google-cloud-sdk
+```
+
+### 反映
+
+コンテナのリビルド
+
+### 確認
+
+```
+$ gcloud --version
+Google Cloud SDK 319.0.0
+alpha 2020.11.13
+beta 2020.11.13
+bq 2.0.62
+core 2020.11.13
+gsutil 4.55
+kubectl 1.16.13
+```
 
 
 
