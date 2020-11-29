@@ -122,29 +122,105 @@ CONTAINER ID        IMAGE                                              COMMAND  
 b15c433ecbad        vsc-vscode-test-3cb0b3ccaa4656c8c325ac5c9e357dcd   "/usr/local/share/do…"   4 hours ago         Up 4 hours                              busy_williams
 ```
 
+# VS Code 上で root で実行できるようにする
+
+### `devcontainer.json` を編集
+
++ root で実行するようにする
+
+```
+### Before
+// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+"remoteUser": "vscode"
+```
+```
+### After
+// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+// "remoteUser": "vscode"
+```
+
+### 反映
+
++ `Remote-Containers: Reopen in Container` をクリック
+
+{{< figure src="/img/2020/11/vcode-devcontainer-11.png" >}}
+
+### 確認
+
+Dev Container の中では root になっていることを確認
+
+{{< figure src="/img/2020/11/vcode-devcontainer-12.png" >}}
+
+
+
 # VS Code の拡張機能を入れる
 
 WIP
 
 ### 拡張機能を探す
 
-WIP
+{{< figure src="/img/2020/11/vcode-devcontainer-13.png" >}}
 
-### json をいじる
+{{< figure src="/img/2020/11/vcode-devcontainer-14.png" >}}
 
-WIP
+### json を修正
 
-### Dev Continer を再読み込み
++ Before
 
-WIP
+```
+// Add the IDs of extensions you want installed when the container is created.
+"extensions": [
+	"ms-azuretools.vscode-docker"
+],
+```
 
-### 確認
++ After
 
-WIP
+```
+// Add the IDs of extensions you want installed when the container is created.
+"extensions": [
+	"ms-azuretools.vscode-docker",
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+],
+```
 
--> 反映
+## 反映
+
+割愛
+
+## 確認
+
++ GitLens と Git Graph が入っていることが分かる
+
+{{< figure src="/img/2020/11/vcode-devcontainer-15.png" >}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # ホストをマウントしてみる
+
+
+
 
 ### ssh の設定をマウント
 
