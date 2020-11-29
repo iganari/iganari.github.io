@@ -73,11 +73,11 @@ https://github.com/iganari/devcontainer_sample
 
 {{< figure src="/img/2020/11/vcode-devcontainer-03.png" >}}
 
-### WIP
+### `Add Developcontaner ...` をクリック
 
 {{< figure src="/img/2020/11/vcode-devcontainer-04.png" >}}
 
-### Docker from Docker を選択
+### `Docker from Docker` を選択
 
 {{< figure src="/img/2020/11/vcode-devcontainer-05.png" >}}
 
@@ -101,13 +101,13 @@ vscode-test
 2 directories, 4 files
 ```
 
+{{< figure src="/img/2020/11/vcode-devcontainer-07.png" >}}
+
 + git の登録をしておきます
 
 ```
 git init .
 ```
-
-{{< figure src="/img/2020/11/vcode-devcontainer-07.png" >}}
 
 ### 左下のメニュー(?)をクリック
 
@@ -129,14 +129,14 @@ docker コマンドが実行可能だということが分かる
 
 ホストマシンの Docker と連動しているのがわかります
 
-{{< figure src="/img/2020/11/vcode-devcontainer-11.png" >}}
-
-
 ```
 $ docker ps
 CONTAINER ID        IMAGE                                              COMMAND                  CREATED             STATUS              PORTS               NAMES
 b15c433ecbad        vsc-vscode-test-3cb0b3ccaa4656c8c325ac5c9e357dcd   "/usr/local/share/do…"   4 hours ago         Up 4 hours                              busy_williams
 ```
+
+{{< figure src="/img/2020/11/vcode-devcontainer-11.png" >}}
+
 
 # VS Code 上で root で実行できるようにする
 
@@ -157,7 +157,7 @@ b15c433ecbad        vsc-vscode-test-3cb0b3ccaa4656c8c325ac5c9e357dcd   "/usr/loc
 
 ### 反映
 
-+ `Remote-Containers: Reopen in Container` をクリック
++ `Remote-Containers: Rebuild Container` をクリック
 
 {{< figure src="/img/2020/11/vcode-devcontainer-12.png" >}}
 
@@ -258,6 +258,8 @@ RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyri
 RUN apt-get update && apt-get install -y google-cloud-sdk
 ```
 
+
+
 ### 反映
 
 コンテナのリビルド
@@ -275,11 +277,16 @@ gsutil 4.55
 kubectl 1.16.13
 ```
 
+{{< figure src="/img/2020/11/vcode-devcontainer-17.png" >}}
 
 
 # まとめ
 
-
-
 お疲れさまでした :)
 
+repository に置いておきたい dev container の基礎的な設定が完了しました
+
+後は、使いやすいようにカスタマイズしていきましょう!
+
+
+Have fun !
