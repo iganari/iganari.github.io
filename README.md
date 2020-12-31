@@ -76,5 +76,7 @@ docker-compose up -d
 
 
 ### コンテナに入ってみる
-docker exec -it ${your_container_name} /bin/sh
+docker exec -it $(docker ps | grep hugo-container | awk '{print $1}') /bin/sh
 ```
+
+

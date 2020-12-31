@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   web:
-    image: jguyomard/hugo-builder
+    image: klakegg/hugo:0.79.1-alpine
     container_name: hugo-container
     ports:
       - "1313:1313"
@@ -11,4 +11,6 @@ services:
     working_dir: /usr/local/iganari/iganari.github.io
     # command: /bin/sh  # for Debug
     # tty: true         # for Debug
-    command: hugo server --bind 0.0.0.0
+    command: server --bind 0.0.0.0
+
+
