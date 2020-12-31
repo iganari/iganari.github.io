@@ -12,6 +12,8 @@ type = "post"
 
 本投稿は [Serverless Advent Calendar 2020](https://qiita.com/advent-calendar/2020/serverless) の17日目です。
 
+本投稿は Zenn の記事のアーカイブになります -> 本記事 [Zenn: Cloud Run の始めの一歩](https://zenn.dev/iganari/articles/002-gcp-first-cloudrun)  
+
 ## Cloud Run とは
 
 GCP が提供しているサーバレスサービスの一つであり、特徴としては「フルマネージドのサーバーレスプラットフォーム上で、スケーラブルなコンテナ化されたアプリケーションを開発し、デプロイが出来る」とのことです。
