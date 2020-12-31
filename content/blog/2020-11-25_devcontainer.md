@@ -8,6 +8,7 @@ featuredpath = "date"
 linktitle = ""
 title = "devcontainer"
 type = "post"
+draft = true
 +++
 
 # 内容まとめ
@@ -284,9 +285,9 @@ kubectl 1.16.13
 
 お疲れさまでした :)
 
+
+
 # まとめ
-
-
 
 repository に置いておきたい dev container の基礎的な設定が完了しました
 
@@ -294,3 +295,11 @@ repository に置いておきたい dev container の基礎的な設定が完了
 
 
 Have fun ! :)
+
+# おまけ
+
+VS Code Meetup で LT してきました :)
+
+VS Code Meetup #8 - 忘年会だよ全員集合 ☆ LT祭り♪
+
+https://vscode.connpass.com/event/196685/
