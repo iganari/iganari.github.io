@@ -82,7 +82,6 @@ docker exec -it $(docker ps | grep hugo-container | awk '{print $1}') /bin/sh
 ```
 
 ```
-
 ### HUGO の記事でドラフト(書きかけにする)
 
 draft = true
