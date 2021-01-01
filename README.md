@@ -67,16 +67,24 @@ command: /bin/sh  # for Debug
 tty: true         # for Debug
 # command: hugo server --bind 0.0.0.0
 ---------------------------------------
+```
 
-
-
+```
 ### Docker Compose の起動
+
 docker-compose up -d
+```
 
-
-
+```
 ### コンテナに入ってみる
+
 docker exec -it $(docker ps | grep hugo-container | awk '{print $1}') /bin/sh
 ```
 
+```
+
+### HUGO の記事でドラフト(書きかけにする)
+
+draft = true
+```
 
