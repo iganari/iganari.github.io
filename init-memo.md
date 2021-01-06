@@ -15,9 +15,18 @@ docker run --rm -it \
   -v $(pwd):/usr/local/iganari \
   -w /usr/local/iganari \
   -p "1313:1313" \
-  jguyomard/hugo-builder \
+  klakegg/hugo:0.79.1-alpine \
   /bin/ash
 ```
+```
+docker run -d \
+  -v $(pwd):/usr/local/iganari \
+  -w /usr/local/iganari \
+  -p "1313:1313" \
+  klakegg/hugo:0.79.1-alpine 
+```
+
+
 
 + :whale: まずは雛形を作成
 
@@ -76,16 +85,18 @@ hugo server --bind 0.0.0.0
 ```
 
 + ブラウザから確認する
-  + この時点ではブランクのページが表示されるのみ
-  + http://127.0.0.1:1313
+    + http://127.0.0.1:1313
+    + `この時点ではブランクのページが表示されるのみ`
+
 
 + テーマをインポートする
-  + 今回は [Hugo Future Imperfect](https://themes.gohugo.io/future-imperfect/) を使用する
-  + [Even](https://themes.gohugo.io/hugo-theme-even/) も捨てがたい…
+    + 今回は [Hugo Future Imperfect](https://themes.gohugo.io/future-imperfect/) を使用する
+    + [Even](https://themes.gohugo.io/hugo-theme-even/) も捨てがたい…
 
 ```
-mkdir themes
+mkdir -p themes
 git clone https://github.com/jpescador/hugo-future-imperfect.git themes/hugo-future-imperfect
+git clone https://github.com/matsuyoshi30/harbor.git themes/harbor
 ```
 
 + :whale: HUGO の設定ファイルにテーマを記述
