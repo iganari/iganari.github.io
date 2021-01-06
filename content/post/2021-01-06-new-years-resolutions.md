@@ -27,7 +27,8 @@ disable_comment = true
 
 この記事を書いている時点で既に正月三が日はとうに過ぎていますが、区切りとして 2020 年の振り返りと 2021 年の抱負を残しておこうと思います。
 
-去年の振り返り記事 -> [2019年の振り返りと2020年のこれから](https://iganari.github.io/blog/2020-01-03_new-years-resolutions/)
+去年の振り返り記事 -> [2019年の振り返りと2020年のこれから](https://iganari.github.io/post/2020-01-03_new-years-resolutions/)
+
 
 # 2020 年の振り返り
 
