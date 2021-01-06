@@ -18,12 +18,12 @@ jobs:
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
-        hugo-version: '0.61.0'
+        hugo-version: '0.79.1'
         # extended: true
 
     - name: Build
       run: |
-        git clone https://github.com/jpescador/hugo-future-imperfect.git themes/hugo-future-imperfect
+        git clone https://github.com/matsuyoshi30/harbor.git themes/harbor
         hugo --minify
 
     - name: Deploy
