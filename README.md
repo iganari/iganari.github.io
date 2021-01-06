@@ -26,14 +26,14 @@
 + Repository をクローンします。
 
 ```
-git clone hoge
+git clone git@github.com:iganari/iganari.github.io.git
 cd iganari.github.io
 ```
 
 + Hugo のテーマをクローンします。
 
 ```
-git clone https://github.com/jpescador/hugo-future-imperfect.git themes/hugo-future-imperfect
+git clone https://github.com/matsuyoshi30/harbor.git themes/harbor
 ```
 
 + Docker Compose を起動します
