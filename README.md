@@ -17,7 +17,7 @@
 
 1. `release` branch に対して、PR を作りマージする(推奨は `develop` branch から、 `release` branch に PR を作成する)
 1. GitHub Actions を通じて、`release` branch から、 `master` branch に自動マージが実行される
-1. `master` branch = https://iganari.github.io/ となる
+1. `master` branch = https://iganari.github.io/ のコンテンツとなる
 
 ## ローカルの開発方法
 
@@ -67,16 +67,23 @@ command: /bin/sh  # for Debug
 tty: true         # for Debug
 # command: hugo server --bind 0.0.0.0
 ---------------------------------------
+```
 
-
-
+```
 ### Docker Compose の起動
+
 docker-compose up -d
+```
 
-
-
+```
 ### コンテナに入ってみる
+
 docker exec -it $(docker ps | grep hugo-container | awk '{print $1}') /bin/sh
 ```
 
+```
+### HUGO の記事でドラフト(書きかけにする)
+
+draft = true
+```
 
