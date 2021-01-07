@@ -19,7 +19,7 @@ disable_comment = true
 
 この記事は下記の記事のアーカイブです :)
 
-+ https://iganari.hatenablog.com/archive/2021/01/06
++ https://iganari.hatenablog.com/entry/2021/01/06/235857
 
 {{< tweet 1344666321494151175 >}}
 
