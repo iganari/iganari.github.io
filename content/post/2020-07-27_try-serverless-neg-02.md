@@ -95,7 +95,7 @@ gcloud compute addresses describe ${_common}-example-ip \
 
 + 確保した静的 IP アドレスを、自分で用意したサブドメインの A レコードとして設定します。
 
-{{< figure src="/img/2020/07/try-serverless-neg_01.png" >}}
+{{< figure src="/images/2020/07/try-serverless-neg_01.png" >}}
 
 
 # まとめ

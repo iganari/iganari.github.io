@@ -288,27 +288,27 @@ Check the resources with a Web browser.
 
 + URL map on GCP console.
 
-{{< figure src="/img/2020/07/try-serverless-neg_02.png" >}}
+{{< figure src="/images/2020/07/try-serverless-neg_02.png" >}}
 
 + `/` は Cloud Run にマッピングされています。
 
-{{< figure src="/img/2020/07/try-serverless-neg_03.png" >}}
+{{< figure src="/images/2020/07/try-serverless-neg_03.png" >}}
 
 + `/run` は Cloud Run にマッピングされています。
 
-{{< figure src="/img/2020/07/try-serverless-neg_04.png" >}}
+{{< figure src="/images/2020/07/try-serverless-neg_04.png" >}}
 
 + `/app` は App Engine にマッピングされています。
 
-{{< figure src="/img/2020/07/try-serverless-neg_05.png" >}}
+{{< figure src="/images/2020/07/try-serverless-neg_05.png" >}}
 
 + `/func` は Cloud Functions にマッピングされています。
 
-{{< figure src="/img/2020/07/try-serverless-neg_06.png" >}}
+{{< figure src="/images/2020/07/try-serverless-neg_06.png" >}}
 
 + 上記のルールに該当しない場合は Cloud Run にマッピングされています。
 
-{{< figure src="/img/2020/07/try-serverless-neg_07.png" >}}
+{{< figure src="/images/2020/07/try-serverless-neg_07.png" >}}
 
 # まとめ
 

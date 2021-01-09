@@ -108,7 +108,7 @@ Service [check-serverless-neg-run] revision [check-serverless-neg-run-00001-lut]
   + 上述のデプロイコマンドの出力結果に以下の URL が出力されています。
   + https://check-serverless-neg-run-3umtulj4sq-an.a.run.app
 
-{{< figure src="/img/2020/07/try-serverless-neg_sample-run.png" >}}
+{{< figure src="/images/2020/07/try-serverless-neg_sample-run.png" >}}
 
 + ルートディレクトリに戻ります。
 
@@ -153,7 +153,7 @@ https://check-serverless-neg-app-dot-[~~~~~~~~~~].an.r.appspot.com
   + 上述のデプロイコマンドの出力結果に以下の URL が出力されています。
   + https://check-serverless-neg-app-dot-[~~~~~~~~~~].an.r.appspot.com
 
-{{< figure src="/img/2020/07/try-serverless-neg_sample-app.png" >}}
+{{< figure src="/images/2020/07/try-serverless-neg_sample-app.png" >}}
 
 + ルートディレクトリに戻ります。
 
@@ -178,7 +178,7 @@ gcloud functions deploy func \
   + GCP コンソールから、Functions の URL を確認することが出来ます。
   + https://check-serverless-neg-app-dot-[~~~~~~~~~~].an.r.appspot.com
 
-{{< figure src="/img/2020/07/try-serverless-neg_sample-func.png" >}}
+{{< figure src="/images/2020/07/try-serverless-neg_sample-func.png" >}}
 
 + ルートディレクトリに戻ります。
 
