@@ -1,0 +1,114 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><title>Serverless NEG を試す ~External HTTP(S) Load Balancer の作成~</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-XX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','UA-XXXXXXXX-XX');</script><script data-goatcounter=https://iganari.github.io/count async src=//iganari.github.io/count.js></script><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=alternate type=application/rss+xml href=https://iganari.github.io/index.xml title="Escape from"><meta name=twitter:card content="summary"><meta name=twitter:title content="Serverless NEG を試す ~External HTTP(S) Load Balancer の作成~"><meta name=twitter:description content="2020/07 時点での Serverless NEG のハンズオン資料です。
+複数の記事に跨って作成しており、4番目の記事になります。"><link rel=stylesheet href=https://iganari.github.io/fontawesome/css/all.min.css><link id=dark-mode-theme rel=stylesheet href=https://iganari.github.io/css/dark.css><script>var darkTheme=document.getElementById('dark-mode-theme')
+var storedTheme=localStorage.getItem('dark-mode-storage')
+if(storedTheme==='dark'){darkTheme.disabled=false}else if(storedTheme==='light'){darkTheme.disabled=true}</script><script src=https://iganari.github.io/js/bundle.js></script><script src=https://iganari.github.io/js/instantpage.min.js type=module defer></script><meta name=generator content="Hugo 0.79.1"></head><body><header><nav class=navbar><div class=nav><a href=https://iganari.github.io/ class=nav-logo><img src=https://iganari.github.io/images/icon.png width=50 height=50 alt=Logo></a><ul class=nav-links><li><a href=/about/ id=About><em class="fas fa-user fa-lg"></em></a></li><li><a href=/tags id=Tags><em class="fas fa-tag fa-lg"></em></a></li><li><a href=/categories id=Category><em class="fas fa-folder-open fa-lg"></em></a></li><li><a href=/search id=Search><em class="fas fa-search fa-lg"></em></a></li><li><a href=/archives id=Archives><em class="fas fa-archive fa-lg"></em></a></li></ul></div></nav><div class=intro-header><div class=container><div class=post-heading><h1>Serverless NEG を試す ~External HTTP(S) Load Balancer の作成~</h1><span class=meta-post><em class="fa fa-calendar-alt"></em>&nbsp;Jul 27, 2020</span></div></div></div></header><div class=container role=main><article class=article class=blog-post><p>2020/07 時点での Serverless NEG のハンズオン資料です。</p><p>複数の記事に跨って作成しており、4番目の記事になります。</p><hr><h1 id=構成>構成</h1><p>この記事の内容は長いため複数の記事に跨って作成しています。</p><p>適宜、興味のある記事を参照して下さい。</p><ul><li><a href=https://iganari.github.io/blog/2020-07-27_try-serverless-neg-00/>Serverless NEG とは?</a></li><li><a href=https://iganari.github.io/blog/2020-07-27_try-serverless-neg-01/>Cloud RUN, App Engine, Cloud Functions の準備</a></li><li><a href=https://iganari.github.io/blog/2020-07-27_try-serverless-neg-02/>サブドメインの設定</a></li><li>&lt;本記事> <a href=https://iganari.github.io/blog/2020-07-27_try-serverless-neg-03/>External HTTP(S) Load Balancer の作成</a></li><li><a href=https://iganari.github.io/blog/2020-07-27_try-serverless-neg-04/>リソースの削除</a></li></ul><h1 id=事前準備>事前準備</h1><ul><li>GCP との認証をします。</li></ul><pre><code>gcloud auth login -q
+</code></pre><ul><li>GCP コマンドのため、環境変数を設定しておきます。</li></ul><pre><code>### New Setting
+export _pj_id='Your GCP Project ID'
+export _common='check-serverless-neg'
+</code></pre><ul><li>GCP Project の設定をしておきます。</li></ul><pre><code>gcloud config set project ${_pj_id}
+</code></pre><ul><li>サンプルコードをダウンロードし、本記事のサンプルコードが格納しているディレクトリに移動します。</li></ul><pre><code>cd [Your WorkSpace]
+git clone https://github.com/iganari/package-gcp.git
+cd package-gcp/compute/networkendpointgroups/serverless
+</code></pre><h1 id=やること>やること</h1><ul><li>External HTTP(S) Load Balancer の作成します。</li></ul><h1 id=external-https-load-balancer-の作成>External HTTP(S) Load Balancer の作成</h1><nav id=TableOfContents><ul><li><a href=#各種の-serverless-neg-を作成する>各種の Serverless NEG を作成する</a></li><li><a href=#各種の-backend-service-を作成する>各種の Backend Service を作成する</a></li><li><a href=#backend-service-に-cloud-run-用の-serverless-neg-を設定する>Backend Service に Cloud Run 用の Serverless NEG を設定する</a></li><li><a href=#url-map-の作成>URL map の作成</a></li><li><a href=#マネージド-ssl-を設定する>マネージド SSL を設定する</a></li><li><a href=#load-balancer-で使用する-forwarding-rule-の作成>Load Balancer で使用する Forwarding Rule の作成</a></li><li><a href=#web-ブラウザで確認>Web ブラウザで確認</a></li></ul></nav><h2 id=各種の-serverless-neg-を作成する>各種の Serverless NEG を作成する</h2><ul><li>Cloud Run の Serverless NEG を作成する</li></ul><pre><code>gcloud beta compute network-endpoint-groups create ${_common}-serverless-neg-run \
+    --region=asia-northeast1 \
+    --network-endpoint-type=SERVERLESS  \
+    --cloud-run-service=${_common}-run
+</code></pre><ul><li>App Engine の Serverless NEG を作成する</li></ul><pre><code>gcloud beta compute network-endpoint-groups create ${_common}-serverless-neg-app \
+    --region=asia-northeast1 \
+    --network-endpoint-type=SERVERLESS  \
+    --app-engine-service=${_common}-app
+</code></pre><ul><li>Cloud Functions の Serverless NEG を作成する</li></ul><pre><code>gcloud beta compute network-endpoint-groups create ${_common}-serverless-neg-func \
+    --region=asia-northeast1 \
+    --network-endpoint-type=SERVERLESS  \
+    --cloud-function-name=func
+</code></pre><ul><li>作成した NEG を確認します。<ul><li>:warning: 2020年7月現在は、GCP コンソール上では確認することが出来ません(※ β版)</li></ul></li></ul><pre><code>gcloud beta compute network-endpoint-groups list
+</code></pre><pre><code>### 例
+
+# gcloud beta compute network-endpoint-groups list
+NAME                                     LOCATION         ENDPOINT_TYPE  SIZE
+check-serverless-neg-serverless-neg-app   asia-northeast1  SERVERLESS     0
+check-serverless-neg-serverless-neg-func  asia-northeast1  SERVERLESS     0
+check-serverless-neg-serverless-neg-run   asia-northeast1  SERVERLESS     0
+</code></pre><h2 id=各種の-backend-service-を作成する>各種の Backend Service を作成する</h2><ul><li>Cloud Run 用の Backend Service を作成します。</li></ul><pre><code>gcloud compute backend-services create ${_common}-backend-service-run \
+    --global
+</code></pre><ul><li>App Engine 用の Backend Service を作成します。</li></ul><pre><code>gcloud compute backend-services create ${_common}-backend-service-app \
+    --global
+</code></pre><ul><li>Cloud Functions 用の Backend Service を作成します。</li></ul><pre><code>gcloud compute backend-services create ${_common}-backend-service-func \
+    --global
+</code></pre><ul><li>Backend Service を確認します。</li></ul><pre><code>gcloud compute backend-services list
+</code></pre><pre><code>### 例
+
+# gcloud compute backend-services list
+NAME                                      BACKENDS  PROTOCOL
+check-serverless-neg-backend-service-app            HTTP
+check-serverless-neg-backend-service-func           HTTP
+check-serverless-neg-backend-service-run            HTTP
+</code></pre><h2 id=backend-service-に-cloud-run-用の-serverless-neg-を設定する>Backend Service に Cloud Run 用の Serverless NEG を設定する</h2><ul><li>Cloud Run 用の Backend Service に Cloud Run 用の Serverless NEG を設定します。</li></ul><pre><code>gcloud beta compute backend-services add-backend ${_common}-backend-service-run \
+    --global \
+    --network-endpoint-group=${_common}-serverless-neg-run \
+    --network-endpoint-group-region=asia-northeast1
+</code></pre><ul><li>App Engine 用の Backend Service に App Engine 用の Serverless NEG を設定します。</li></ul><pre><code>gcloud beta compute backend-services add-backend ${_common}-backend-service-app \
+    --global \
+    --network-endpoint-group=${_common}-serverless-neg-app \
+    --network-endpoint-group-region=asia-northeast1
+</code></pre><ul><li>Cloud Functions 用の Backend Service に Cloud Functions 用の Serverless NEG を設定します。</li></ul><pre><code>gcloud beta compute backend-services add-backend ${_common}-backend-service-func \
+    --global \
+    --network-endpoint-group=${_common}-serverless-neg-func \
+    --network-endpoint-group-region=asia-northeast1
+</code></pre><ul><li>Backend Service を確認します。</li></ul><pre><code>gcloud compute backend-services list
+</code></pre><pre><code>### Ex.
+
+# gcloud compute backend-services list
+NAME                                       BACKENDS                                                                        PROTOCOL
+check-serverless-neg-backend-service-app   asia-northeast1/networkEndpointGroups/check-serverless-neg-serverless-neg-app   HTTP
+check-serverless-neg-backend-service-func  asia-northeast1/networkEndpointGroups/check-serverless-neg-serverless-neg-func  HTTP
+check-serverless-neg-backend-service-run   asia-northeast1/networkEndpointGroups/check-serverless-neg-serverless-neg-run   HTTP
+</code></pre><h2 id=url-map-の作成>URL map の作成</h2><ul><li>Load Balancer で使用する URL map を作成します。<ul><li>デフォルトは Cloud Run にマッピングするようにします。</li></ul></li></ul><pre><code>gcloud compute url-maps create ${_common}-url-map \
+    --default-service ${_common}-backend-service-run
+</code></pre><ul><li>URL map のデフォルト以外の設定をします。</li></ul><pre><code>gcloud compute url-maps add-path-matcher ${_common}-url-map \
+    --path-matcher-name=${_common}-path-matcher \
+    --path-rules &quot;/app=check-serverless-neg-backend-service-app,/func=check-serverless-neg-backend-service-func&quot; \
+    --default-service=check-serverless-neg-backend-service-run
+</code></pre><ul><li>URL map を確認します。</li></ul><pre><code>gcloud compute url-maps list
+</code></pre><pre><code>### Ex.
+
+# gcloud compute url-maps list
+NAME                          DEFAULT_SERVICE
+check-serverless-neg-url-map  backendServices/check-serverless-neg-backend-service-run
+</code></pre><h2 id=マネージド-ssl-を設定する>マネージド SSL を設定する</h2><ul><li>www-ssl-cert という名前で Google マネージド SSL certificate リソースの作成をします。</li></ul><pre><code>export _my_domain=$(echo ${_common}.hejda.org)
+</code></pre><pre><code>gcloud compute ssl-certificates create ${_common}-www-ssl-cert \
+    --domains ${_my_domain}
+</code></pre><ul><li>Certificate リソースの確認をします。</li></ul><pre><code>gcloud compute ssl-certificates list
+</code></pre><pre><code>### Ex.
+
+# gcloud compute ssl-certificates list
+NAME                               TYPE     CREATION_TIMESTAMP             EXPIRE_TIME  MANAGED_STATUS
+check-serverless-neg-www-ssl-cert  MANAGED  2020-07-26T00:35:54.246-07:00               PROVISIONING
+    check-serverless-neg.hejda.org: PROVISIONING
+</code></pre><h2 id=load-balancer-で使用する-forwarding-rule-の作成>Load Balancer で使用する Forwarding Rule の作成</h2><ul><li>リクエストをプロクシにルーティングする forwarding rule を作成します。</li></ul><pre><code>gcloud compute forwarding-rules create ${_common}-https-content-rule \
+    --address=${_common}-example-ip \
+    --target-https-proxy=${_common}-https-proxy \
+    --global \
+    --ports=443
+</code></pre><ul><li>Forwarding Rule の確認をします。</li></ul><pre><code>gcloud compute forwarding-rules list
+</code></pre><pre><code>### 例
+
+# gcloud compute forwarding-rules list
+NAME                                     REGION  IP_ADDRESS      IP_PROTOCOL  TARGET
+check-serverless-neg-https-content-rule          34.107.216.140  TCP          check-serverless-neg-https-proxy
+</code></pre><p>&mdash;> これで、目的の Serverless NEG を使った External HTTP(S) Load Balancer の作成が完了しました!!</p><h2 id=web-ブラウザで確認>Web ブラウザで確認</h2><p>ここまで作ってきたリソースを Web ブラウザで確認していきます。</p><p>Check the resources with a Web browser.</p><ul><li>URL map on GCP console.</li></ul><figure><img src=/images/2020/07/try-serverless-neg_02.png></figure><ul><li><code>/</code> は Cloud Run にマッピングされています。</li></ul><figure><img src=/images/2020/07/try-serverless-neg_03.png></figure><ul><li><code>/run</code> は Cloud Run にマッピングされています。</li></ul><figure><img src=/images/2020/07/try-serverless-neg_04.png></figure><ul><li><code>/app</code> は App Engine にマッピングされています。</li></ul><figure><img src=/images/2020/07/try-serverless-neg_05.png></figure><ul><li><code>/func</code> は Cloud Functions にマッピングされています。</li></ul><figure><img src=/images/2020/07/try-serverless-neg_06.png></figure><ul><li>上記のルールに該当しない場合は Cloud Run にマッピングされています。</li></ul><figure><img src=/images/2020/07/try-serverless-neg_07.png></figure><h1 id=まとめ>まとめ</h1><p>これで Serverless NEG を使った External HTTP(S) Load Balancer の作成が出来ました!!</p><p>最後に <a href=https://iganari.github.io/blog/2020-07-27_try-serverless-neg-04/>リソースの削除</a> をします。</p><p>Have fun! :)</p></article><script>document.addEventListener('scroll',function(){if(document.body.scrollTop>50||document.documentElement.scrollTop>50){document.getElementById('backtotopButton').style.opacity='1'
+document.getElementById('backtotopButton').style.transition='0.5s'}else{document.getElementById('backtotopButton').style.opacity='0'
+document.getElementById('backtotopButton').style.transition='0.5s'}})
+function topFunction(){document.body.scrollTop=0
+document.documentElement.scrollTop=0}</script><button onclick=topFunction() id=backtotopButton>
+<em class="fa fa-angle-up"></em></button><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname=="localhost")return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='yourdisqusshortname';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the
+<a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com/ class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><footer><div><a href=https://twitter.com/iganari_ name=twitter><em class="fab fa-twitter"></em></a><a href=https://github.com/iganari name=github><em class="fab fa-github"></em></a><a href=https://www.linkedin.com/in/iganari/ name=LinkedIn><em class="fab fa-linkedin-in"></em></a><a href=link%20to%20social%20media name="name of social media"><em class="A icon from https://fontawesome.com/"></em></a><div class=container><p class="credits copyright"><a href=https://iganari.github.io/about>iganari</a>
+&nbsp;&copy;
+2021
+&nbsp;/&nbsp;
+<a href=https://iganari.github.io/>Escape from</a>
+&nbsp;&ndash;&nbsp;
+<em class="fas fa-moon" id=dark-mode-toggle></em></p><p class="credits theme-by">Powered By <a href=https://gohugo.io>Hugo</a>&nbsp;
+Theme
+<a href=https://github.com/matsuyoshi30/harbor>Harbor</a></p></div></footer></body></html>
