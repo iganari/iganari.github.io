@@ -36,6 +36,7 @@ disqusShortName = "yourdisqusshortname"
   url = "tags"
   weight = 3
 
+### tag 被る上、使いにくいのでコメントアウト
 # [[params.nav]]
 #   identifier = "categories"
 #   name = "Category"
