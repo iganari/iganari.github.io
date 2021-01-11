@@ -24,11 +24,11 @@ disable_comment = true
 
 適宜、興味のある記事を参照して下さい。
 
-+ <本記事> [Serverless NEG とは?](https://iganari.github.io/blog/2020-07-27_try-serverless-neg-00/)
-+ [Cloud RUN, App Engine, Cloud Functions の準備](https://iganari.github.io/blog/2020-07-27_try-serverless-neg-01/)
-+ [サブドメインの設定](https://iganari.github.io/blog/2020-07-27_try-serverless-neg-02/)
-+ [External HTTP(S) Load Balancer の作成](https://iganari.github.io/blog/2020-07-27_try-serverless-neg-03/)
-+ [リソースの削除](https://iganari.github.io/blog/2020-07-27_try-serverless-neg-04/)
++ <本記事> [Serverless NEG とは?](https://iganari.github.io/post/2020-07-27_try-serverless-neg-00/)
++ [Cloud RUN, App Engine, Cloud Functions の準備](https://iganari.github.io/post/2020-07-27_try-serverless-neg-01/)
++ [サブドメインの設定](https://iganari.github.io/post/2020-07-27_try-serverless-neg-02/)
++ [External HTTP(S) Load Balancer の作成](https://iganari.github.io/post/2020-07-27_try-serverless-neg-03/)
++ [リソースの削除](https://iganari.github.io/post/2020-07-27_try-serverless-neg-04/)
 
 # やること
 
@@ -70,6 +70,6 @@ Cloud Run や App Engine などは、単独でも強力なスケーリング機�
 
 これで Serverless NEG の概要を把握しました!!
 
-次は [Cloud RUN, App Engine, Cloud Functions の準備](https://iganari.github.io/blog/2020-07-27_try-serverless-neg-01/) をやっていきます!
+次は [Cloud RUN, App Engine, Cloud Functions の準備](https://iganari.github.io/post/2020-07-27_try-serverless-neg-01/) をやっていきます!
 
 Have fun! :)
