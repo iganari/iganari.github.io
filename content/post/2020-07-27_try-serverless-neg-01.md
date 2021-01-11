@@ -1,7 +1,7 @@
 +++
 title = "Serverless NEG を試す ~Cloud RUN, App Engine, Cloud Functions の準備~"
 date = "2020-07-27T01:00:00Z"
-tag = [
+tags = [
     "GCP",
     "Serverless"
 ]

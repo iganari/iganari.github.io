@@ -1,7 +1,7 @@
 +++
 title = "Serverless NEG を試す ~External HTTP(S) Load Balancer の作成~"
 date = "2020-07-27T03:00:00Z"
-tag = [
+tags = [
     "GCP",
     "Serverless"
 ]

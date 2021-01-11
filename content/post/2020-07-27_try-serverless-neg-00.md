@@ -1,7 +1,7 @@
 +++
 title = "Serverless NEG を試す ~Serverless NEG とは?~"
 date = "2020-07-27T00:00:00Z"
-tag = [
+tags = [
     "GCP",
     "Serverless"
 ]

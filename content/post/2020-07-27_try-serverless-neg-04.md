@@ -1,7 +1,7 @@
 +++
 title = "Serverless NEG を試す ~リソースの削除~"
 date = "2020-07-27T04:00:00Z"
-tag = [
+tags = [
     "GCP",
     "Serverless"
 ]

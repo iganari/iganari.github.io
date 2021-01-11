@@ -1,7 +1,7 @@
 +++
 title = "Serverless NEG を試す ~サブドメインの設定~"
 date = "2020-07-27T02:00:00Z"
-tag = [
+tags = [
     "GCP",
     "Serverless"
 ]
