@@ -1,199 +1,87 @@
-# https://github.com/pacollins/hugo-future-imperfect/blob/master/exampleSite/config.toml
-# https://github.com/pacollins/hugo-future-imperfect-slim/blob/master/exampleSite/config.toml
-
-baseURL = "https://iganari.github.io/"
-languageCode = "en-us"
-# title = "My New Hugo Site"
-title = "ESCAPE FROM / iganari"
-theme = "hugo-future-imperfect"
-preserveTaxonomyNames = true
+theme = "harbor"
+baseurl = "https://iganari.github.io/"
+title = "Escape from"
 paginate = 3
-disqusShortname = "shortname"
-googleAnalytics = ""
-pluralizeListTitles = false
-# Set the followings to true as part of your site SEO
-enableRobotsTXT = true
-canonifyURLs = true
+languageCode = "en"
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+footnoteReturnLinkContents = "^"
 
+# Optional
+# If you use googleAnalytics, you set top-level options in config.toml to the beginning of the config file like other top-level options.
+googleAnalytics = "UA-XXXXXXXX-XX"
+# and disqus too.
+disqusShortName = "yourdisqusshortname"
 
-[params]
-  # Sets the meta tag description
-  description          = "HTML5 UP theme, Future Imperfect with some extra goodies, ported by Julio Pescador. Powered by Hugo"
-  # Sets the navbarTitle that appears in the top left of the navigation bar
-  # navbarTitle          = "Future Imperfect"
-  navbarTitle          = "ESCAPE FROM"
-  # Sets where "View More Posts" links
-  viewMorePostLink     = "/blog/"
+[params.goatcounter]
+  domain="iganari.github.io"
 
-# Optional Params
-  # Sets navbarTitle to match the section of the website
-  dynamicTitles        = true
-  # Sets RSS icons to appear on the sidebar with the social media buttons
-  rssAppearAtTop       = true
-  rssAppearAtBottom    = true
-  # Sets Social Media icons to appear on the sidebar
-  socialAppearAtTop    = true
-  socialAppearAtBottom = true
-  # Sets Categories to sort by number of posts instead of alphabetical
-  categoriesByCount    = true
-  # set to show or to hide categories in the sidebar
-  showSidebarCategories = true
-  # Sets Estimated Reading Time to appear in post headers
-  includeReadingTime   = true
-  # Sets the Favicon and Version for the site. Default support is for
-  # apple-touch-icon-precomposed.png, favicon.png, favicon.ico, and mstile.png.
-  # These are stored in the favicon folder. See the following for more information:
-  # https://github.com/audreyr/favicon-cheat-sheet
-  loadFavicon          = false
-  faviconVersion       = ""
-  # Sets Social Share links to appear on posts
-  socialShare          = true
-  # Sets specific share to appear on posts (default behavior is to appear)
-  socialShareTwitter   = true
-  socialShareGoogleplus = false
-  socialShareFacebook  = true
-  socialShareReddit    = false
-  socialShareLinkedin  = true
-  socialShareStumbleupon = false
-  socialSharePinterest = true
-  socialShareEmail     = false
+[Author]
+  name = "iganari"
 
-  # Load custom CSS or JavaScript files. The variable is an array so that you
-  # can load multiple files if necessary. You can also load the standard theme
-  # files by adding the value, "default".
-  # customCSS            = ["default", "/path/to/file"]
-  # customJS             = ["default", "/path/to/file"]
-  customCSS            = ["default"]
-  customJS             = ["default"]
+[outputs]
+  section = ["JSON", "HTML"]
 
-  # options for highlight.js (version, additional languages, and theme)
-  disable_highlight = false # set to true to disable Highlight
-  highlightjsVersion = "9.11.0"
-  highlightjsCDN = "//cdn.bootcss.com"
-  highlightjsLang = ["r", "yaml", "css"]
-  highlightjsTheme = "github"
-  MathJaxCDN = "//cdn.bootcss.com"
-  MathJaxVersion = "2.7.1"
-
-
-
-
-[params.intro]
-  # header    = "Hugo Future Imperfect"
-  header    = "iganari/Toru Igarashi"
-
-  # paragraph = "Another fine responsive site template by <a href=\"http://html5up.net\">HTML5 UP</a>. Ported by Julio Pescador with some extra goodies <i class='fa fa-hand-peace-o'></i>"
-
-  # about     = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent tellus lacus, auctor vehicula molestie quis, tempor quis velit. Quisque in quam ac leo efficitur vulputate. Phasellus ullamcorper aliquam sodales. Maecenas sit amet condimentum ipsum. Proin sit amet ligula elit. Mauris."
-  about     = "Hello my friend!! :) I have interested in Public Cloud, Container, Infrastructure as Code and User Comunity!! Let's fun life Together!!"
-
-  # This appears at the top of the sidebar above params.intro.header.
-  # A width of less than 100px is recommended from a design perspective.
-  [params.intro.pic]
-    # src       = "/img/main/hejda-face.jpeg"
-    src       = "/img/main/hejda-face-30.png"
-    # Sets Image to be a cirlce
-    # circle    = false
-    circle    = true
-    # Sets Image to be Future Imperfect's hexagon
-    imperfect = true
-    width     = ""
-    alt       = "Hugo Future Imperfect"
-
-[params.postAmount]
-# Sets the number of recent posts to show in the sidebar. The default value is 5.
-    sidebar = 5
-
-
-
-# Sets the menu items in the navigation bar
-# Identifier prepends a Font Awesome icon to the menu item
-[[menu.main]]
-  name = "Home"
-  url = "/"
-  identifier = "fa fa-home"
-  weight = 1
-
-[[menu.main]]
+[[params.nav]]
+  identifier = "about"
   name = "About"
+  icon = "fas fa-user fa-lg"
   url = "/about/"
-  identifier = "fa fa-id-card-o"
-  weight = 2
-
-[[menu.main]]
-  name = "Blog"
-  url = "/blog/"
-  identifier = "fa fa-newspaper-o"
   weight = 3
 
-# [[menu.main]]
-#   name = "Itemized"
-#   url = "/itemized/"
-#   identifier = "fa fa-list"
-#   weight = 4
+[[params.nav]]
+  identifier = "tags"
+  name = "Tags"
+  icon = "fas fa-tag fa-lg"
+  url = "tags"
+  weight = 3
 
-[[menu.main]]
-  name = "Categories"
-  url = "/categories/"
-  identifier = "fa fa-sitemap"
-  weight = 5
+### tag 被る上、使いにくいのでコメントアウト
+# [[params.nav]]
+#   identifier = "categories"
+#   name = "Category"
+#   icon = "fas fa-folder-open fa-lg"
+#   url = "categories"
+#   weight = 3
 
-# [[menu.main]]
-#   name = "Contact"
-#   url = "/contact/"
-#   identifier = "fa fa-envelope-o"
-#   weight = 6
+[[params.nav]]
+  identifier = "search"
+  name = "Search"
+  icon = "fas fa-search fa-lg"
+  url = "search"
+  weight = 3
 
+[[params.nav]]
+  identifier = "archives"
+  name = "Archives"
+  icon = "fas fa-archive fa-lg"
+  url = "archives"
+  weight = 3
 
+# copy paste this block and change for each social media to add how many ever social media
+# acounts/links you want
+[[params.social]]
+  name= "twitter"
+  url="https://twitter.com/iganari_"
+  icon="fab fa-twitter"
 
-[social]
-  # Coding Communities
-  github           = "iganari"
-  # gitlab           = ""
-  # stackoverflow    = "" # User Number
-  # bitbucket        = ""
-  # jsfiddle         = ""
-  # codepen          = ""
+[[params.social]]
+  name= "github"
+  url="https://github.com/iganari"
+  icon="fab fa-github"
 
-  # Visual Art Communities
-  # deviantart       = ""
-  # flickr           = "example"
-  # behance          = ""
-  # dribbble         = ""
+[[params.social]]
+  name= "LinkedIn"
+  url="https://www.linkedin.com/in/iganari/"
+  icon="fab fa-linkedin-in"
 
-  # Publishing Communities
-  # wordpress        = ""
-  # medium           = ""
+[[params.social]]
+  name="name of social media"
+  url="link to social media"
+  icon="A icon from https://fontawesome.com/"
 
-  # Professional/Business Oriented Communities
-  # linkedin         = "example"
-  # linkedin_company = "examplebusiness"
-  # foursquare       = ""
-  # xing             = ""
-  slideshare       = "igarashitoru9/presentations"
-
-  # Social Networks
-  # facebook         = "example"
-  # googleplus       = ""
-  # reddit           = "example"
-  # quora            = ""
-  # youtube          = ""
-  # vimeo            = ""
-  # whatsapp         = "" # WhatsApp Number
-  #   # WeChat and QQ need testing.
-  #   wechat         = ""
-  #   qq             = "" # User ID Number
-  # instagram        = "example"
-  # tumblr           = ""
-  twitter          = "iganari_"
-  # skype            = ""
-  # snapchat         = ""
-  # pinterest        = "example"
-  # telegram         = "example"
-  # vine             = ""
-  # googlescholar    = ""
-  # orcid            = ""
-  # researchgate     = "example"
-
-  # # Email
-  # email            = "example"
+[params.logo]
+  url = "icon.png" # static/images/icon.png
+  width = 50
+  height = 50
+  alt = "Logo"
