@@ -1,6 +1,6 @@
 +++
 title = "[新機能] Cloud Build Trigger が定期実行( Run on schedule )出来るようになったので試してみる"
-date = 2021-02-13T00:00:00Z
+date = 2021-02-15T00:00:00Z
 tags = [
     "GCP",
     "Cloud Build"
