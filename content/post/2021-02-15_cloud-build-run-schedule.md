@@ -1,9 +1,10 @@
 +++
-title = "[新機能] Cloud Build Trigger が定期実行( Run on schedule )出来るようになったので試してみる"
+title = "[新機能] Cloud Build Trigger が指定した時間に実行( Run on schedule )出来るようになったので試してみる"
 date = 2021-02-15T00:00:00Z
 tags = [
     "GCP",
-    "Cloud Build"
+    "Cloud Build",
+    "Cloud Scheduler",
 ]
 draft = true # `true` or `false`
 toc = true
@@ -11,7 +12,7 @@ backtotop = true
 disable_comment = true
 +++
 
-Cloud Build の新機能を試してみました :)
+Cloud Build の追加機能を試してみました :)
 
 <!--more-->
 ---
@@ -28,34 +29,37 @@ WIP
 
 Cloud Build の Trigger を指定した時間に実行する機能が追加実装されました。
 
+その機能をさっそく使ってみようと思います :)
 
+なお、 2021 年 2 月の時点では `Preview` となっています。
 
+### Cloud Build とは
 
-2021 年 2 月の時点では `Preview` となっているので、所謂 `β版` となります
+GCP のフルマネージドの CI/CD 基盤であり、昨今の DevOps には欠かせない機能の一つです。
 
-Cloud Scheduler を Cloud Build のページから設定していく
+[Cloud Build](https://cloud.google.com/build)
 
+### 今回の追加機能について
 
+今までは Cloud Build を実行するトリガーは、連携している Repository に対してのイベントをフックするか、 API 的に外部から実行するしかありませんでした。
 
-Cloud Build とは GCP のフルマネージド CI/CD 機能であり、昨今の DevOps には欠かせない機能です
+新しい追加機能は Cloud Build から Cloud Scheduler を直接設定することが出来るようになりました。
 
-この Cloud Build の実行トリガーは連携している Repository のイベントか、API 的に外部から実行するしかありませんでした
+つまり…
 
-今回の新機能は GCP のサービスの一つである Cloud Scheduler を使うことで、定期実行を設定できるようにするものです
-
-今まで、 Cloud Build を定期実行させたい場合は自分で以下の構成をする必要がありました
+今まで、 Cloud Build を定期実行させたい場合は自分で以下の構成をする必要がありました。
 
 + `Cloud Scheduler` -> `Cloud Pub/Sub` -> `Cloud Functions` -> `Cloud Build`
 
 {{< figure src="/images/2021/02/15/01.png" >}}
 
-今回の新機能では以下のよう(※ ユーザが実装する部分という意味で)になります
+今回の追加機能では以下のよう(※ ユーザが実装する部分という意味で)になります。
 
 + `Cloud Scheduler` -> `Cloud Build`
 
 {{< figure src="/images/2021/02/15/02.png" >}}
 
-Cloud Build を使った DevOps にて出来ることが増えるので、早めに習得しておきましょう :)
+意識して管理するコンポーネントが減るので運用負荷が減り、サービス開発においても出来ることが増えるので、早めに習得しておきましょう :)
 
 
 ### 公式ドキュメント
@@ -130,17 +134,22 @@ https://console.cloud.google.com/marketplace/product/google/cloudscheduler.googl
 
 {{< figure src="/images/2021/02/15/14.png" >}}
 
-### Cloud Scheduler で使用する Service Account を選択する
+### Cloud Scheduler で使用する Service Account を選択し、 `CONTINUE` をクリック
 
 デフォルトで選択されているものを使用する
 
 {{< figure src="/images/2021/02/15/15.png" >}}
 
+### Cloud Scheduler を実行するリージョンを選択するために、 `SET REGION` をクリック
+
+
+{{< figure src="/images/2021/02/15/16.png" >}}
+
 ### Cloud Scheduler を実行するリージョンを選択する
 
 `asia-northeast1` を選択
 
-{{< figure src="/images/2021/02/15/16.png" >}}
+{{< figure src="/images/2021/02/15/17.png" >}}
 
 ### Cloud Scheduler の設定をする
 
@@ -150,20 +159,27 @@ https://console.cloud.google.com/marketplace/product/google/cloudscheduler.googl
 
 今回は 5 分毎に実行するように設定する
 
-{{< figure src="/images/2021/02/15/17.png" >}}
+{{< figure src="/images/2021/02/15/18.png" >}}
 
 ### 作成完了
 
-{{< figure src="/images/2021/02/15/18.png" >}}
+{{< figure src="/images/2021/02/15/19.png" >}}
 
 ### History をクリックし、定期実行されるのを待つ
 
-{{< figure src="/images/2021/02/15/19.png" >}}
+{{< figure src="/images/2021/02/15/20.png" >}}
 
 ### 1 時間くらい待った結果、ちゃんと 5 分毎に実行されているのが分かる
 
-{{< figure src="/images/2021/02/15/20.png" >}}
+{{< figure src="/images/2021/02/15/21.png" >}}
 
 # まとめ
 
-:)
+今回は Cloud Build の追加機能を試してみました。
+
+サービス開発がより効率的に出来るようになるので、 GA (General Availability) が楽しみですね!!
+
+なお繰り返しになりますが、この記事を書いている時点ではこの追加機能は Preview なので、ご利用は自己責任かつ計画的にお願いします。
+
+
+Have fun !! :)
