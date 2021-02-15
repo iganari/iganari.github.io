@@ -21,9 +21,7 @@ Cloud Build の追加機能を試してみました :)
 
 この記事は下記の記事のアーカイブです ;)
 
-```
-WIP
-```
+https://iganari.hatenablog.com/entry/2021/02/15/234246
 
 # 概要
 
@@ -60,7 +58,6 @@ GCP のフルマネージドの CI/CD 基盤であり、昨今の DevOps には�
 {{< figure src="/images/2021/02/15/02.png" >}}
 
 意識して管理するコンポーネントが減るので運用負荷が減り、サービス開発においても出来ることが増えるので、早めに習得しておきましょう :)
-
 
 ### 公式ドキュメント
 
@@ -142,7 +139,6 @@ https://console.cloud.google.com/marketplace/product/google/cloudscheduler.googl
 
 ### Cloud Scheduler を実行するリージョンを選択するために、 `SET REGION` をクリック
 
-
 {{< figure src="/images/2021/02/15/16.png" >}}
 
 ### Cloud Scheduler を実行するリージョンを選択する
@@ -180,6 +176,5 @@ https://console.cloud.google.com/marketplace/product/google/cloudscheduler.googl
 サービス開発がより効率的に出来るようになるので、 GA (General Availability) が楽しみですね!!
 
 なお繰り返しになりますが、この記事を書いている時点ではこの追加機能は Preview なので、ご利用は自己責任かつ計画的にお願いします。
-
 
 Have fun !! :)
