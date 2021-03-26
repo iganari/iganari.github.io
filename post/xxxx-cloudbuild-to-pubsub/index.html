@@ -1,0 +1,20 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><title></title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-XX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','UA-XXXXXXXX-XX');</script><script data-goatcounter=https://iganari.github.io/count async src=//iganari.github.io/count.js></script><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=alternate type=application/rss+xml href=https://iganari.github.io/index.xml title="Escape from"><meta name=twitter:card content="summary"><meta name=twitter:title content><meta name=twitter:description content="Pub/Sub から Cloud Build を実行してみる https://cloud.google.com/build/docs/automating-builds/create-pubsub-triggers
+つくる構成
+GCS に何かファイルを置く -> Pub/Sub 経由で Cloud Build が作動 どんな作業をしたのかSlackに通知
+PubSub から渡されたデータとしてどのようなものがあるのかをすべて出したらいいんじゃないかな
+Container regstry ->　pubsub-> Clouod Build Cloud Storage のイベント -> pubsub-> Cloud Build
+まずは package gcp のほうで上記の2種類をやる"><link rel=stylesheet href=https://iganari.github.io/fontawesome/css/all.min.css><link id=dark-mode-theme rel=stylesheet href=https://iganari.github.io/css/dark.css><script>var darkTheme=document.getElementById('dark-mode-theme')
+var storedTheme=localStorage.getItem('dark-mode-storage')
+if(storedTheme==='dark'){darkTheme.disabled=false}else if(storedTheme==='light'){darkTheme.disabled=true}</script><script src=https://iganari.github.io/js/bundle.js></script><script src=https://iganari.github.io/js/instantpage.min.js type=module defer></script><meta name=generator content="Hugo 0.79.1"></head><body><div class=intro-header></div><div class=container role=main><article class=article class=blog-post><h1 id=pubsub-から-cloud-build-を実行してみる>Pub/Sub から Cloud Build を実行してみる</h1><p><a href=https://cloud.google.com/build/docs/automating-builds/create-pubsub-triggers>https://cloud.google.com/build/docs/automating-builds/create-pubsub-triggers</a></p><p>つくる構成</p><p>GCS に何かファイルを置く -> Pub/Sub 経由で Cloud Build が作動
+どんな作業をしたのかSlackに通知</p><p>PubSub から渡されたデータとしてどのようなものがあるのかをすべて出したらいいんじゃないかな</p><p>Container regstry ->　pubsub-> Clouod Build
+Cloud Storage のイベント -> pubsub-> Cloud Build</p><p>まずは package gcp のほうで上記の2種類をやる</p></article><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname=="localhost")return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='yourdisqusshortname';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the
+<a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com/ class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><footer><div><a href=https://twitter.com/iganari_ name=twitter><em class="fab fa-twitter"></em></a><a href=https://github.com/iganari name=github><em class="fab fa-github"></em></a><a href=https://www.linkedin.com/in/iganari/ name=LinkedIn><em class="fab fa-linkedin-in"></em></a><a href=link%20to%20social%20media name="name of social media"><em class="A icon from https://fontawesome.com/"></em></a><div class=container><p class="credits copyright"><a href=https://iganari.github.io/about>iganari</a>
+&nbsp;&copy;
+2021
+&nbsp;/&nbsp;
+<a href=https://iganari.github.io/>Escape from</a>
+&nbsp;&ndash;&nbsp;
+<em class="fas fa-moon" id=dark-mode-toggle></em></p><p class="credits theme-by">Powered By <a href=https://gohugo.io>Hugo</a>&nbsp;
+Theme
+<a href=https://github.com/matsuyoshi30/harbor>Harbor</a></p></div></footer></body></html>
