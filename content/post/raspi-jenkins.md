@@ -87,6 +87,7 @@ openjdk-9-jre-zero/stable 9.0.4+12-4 armhf
 sudo apt install openjdk-11-jre
 ```
 
+
 + OpenJDK の確認
 
 ```
@@ -105,5 +106,31 @@ sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > \
     /etc/apt/sources.list.d/jenkins.list'
 sudo apt-get update
 sudo apt-get install jenkins
+```
 
+
++ Jenkins のデーモンを確認
+
+```
+$ sudo systemctl status jenkins
+● jenkins.service - LSB: Start Jenkins at boot time
+   Loaded: loaded (/etc/init.d/jenkins; generated)
+   Active: active (exited) since Tue 2021-04-20 22:50:21 JST; 1min 6s ago
+     Docs: man:systemd-sysv-generator(8)
+    Tasks: 0 (limit: 2062)
+   CGroup: /system.slice/jenkins.service
+
+Apr 20 22:50:19 raspi systemd[1]: Starting LSB: Start Jenkins at boot time...
+Apr 20 22:50:19 raspi jenkins[3495]: Correct java version found
+Apr 20 22:50:19 raspi su[3554]: (to jenkins) root on none
+Apr 20 22:50:19 raspi su[3554]: pam_unix(su-l:session): session opened for user jenkins by (uid=0)
+Apr 20 22:50:20 raspi su[3554]: pam_unix(su-l:session): session closed for user jenkins
+Apr 20 22:50:21 raspi jenkins[3495]: Starting Jenkins Automation Server: jenkins.
+Apr 20 22:50:21 raspi systemd[1]: Started LSB: Start Jenkins at boot time.
+```
+
++ ブラウザから確認する
+
+```
+http://IP_ADDRESS:8080
 ```
