@@ -11,27 +11,30 @@ backtotop = true
 disable_comment = true
 +++
 
-Raspi + Camera + Node-RED => 栽培日記 v1
+Raspberry Pi に Jenkins を載せるやり方です  :)
 
 <!--more-->
 ---
 
 # 注意点
 
-Raspberry Pi に Jenkins を載せるやり方です
+この記事は下記の記事のアーカイブです ;)
+
+WIP
 
 # 概要
 
 Raspberry Pi に Jenkins を載せるやり方です
 
-結果から書くと公式ドキュメントの通りにやると出来ます
+結果から書くと、公式ドキュメントの通りにやると出来ます :)
 
 https://www.jenkins.io/doc/book/installing/linux/
 
 
-# スペック
 
-+ Raspberry Pi
+# 実際にやってみる
+
+### 使用する Raspberry Pi のスペック
 
 ```
 $ cat /etc/os-release
@@ -55,15 +58,15 @@ $ cat /proc/version
 Linux version 5.10.17-v7+ (dom@buildbot) (arm-linux-gnueabihf-gcc-8 (Ubuntu/Linaro 8.4.0-3ubuntu1) 8.4.0, GNU ld (GNU Binutils for Ubuntu) 2.34) #1403 SMP Mon Feb 22 11:29:51 GMT 2021
 ```
 
-# やってみる
+### Java のインストール
 
-# Java のインストール
++ apt を更新する
 
 ```
 sudo apt update
 ```
 
-+ 入れられそうな最新の OpenJDK を探す
++ 入れられそうな最新の OpenJDK を探します
   + `v11` が最新のよう
 
 ```
@@ -86,14 +89,13 @@ openjdk-9-jre-headless/stable 9.0.4+12-4 armhf
 openjdk-9-jre-zero/stable 9.0.4+12-4 armhf
 ```
 
-+ `openjdk-11-jre` をインストールする
++ `openjdk-11-jre` をインストールします
 
 ```
 sudo apt install openjdk-11-jre
 ```
 
-
-+ OpenJDK の確認
++ OpenJDK の確認します
 
 ```
 $ java --version
@@ -102,8 +104,10 @@ OpenJDK Runtime Environment (build 11.0.9.1+1-post-Raspbian-1deb10u2)
 OpenJDK Server VM (build 11.0.9.1+1-post-Raspbian-1deb10u2, mixed mode)
 ```
 
-+ Jenkins を apt 経由でインストールする
-  + 参考 公式: https://www.jenkins.io/doc/book/installing/linux/
+### Jenkins のインストール
+
++ Jenkins を apt 経由でインストールします
+  + 参考 [公式ドキュメント](https://www.jenkins.io/doc/book/installing/linux/)
 
 ```
 wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
@@ -113,8 +117,7 @@ sudo apt-get update
 sudo apt-get install jenkins
 ```
 
-
-+ Jenkins のデーモンを確認
++ Jenkins のデーモンを確認します
 
 ```
 $ sudo systemctl status jenkins
@@ -134,14 +137,46 @@ Apr 20 22:50:21 raspi jenkins[3495]: Starting Jenkins Automation Server: jenkins
 Apr 20 22:50:21 raspi systemd[1]: Started LSB: Start Jenkins at boot time.
 ```
 
-+ ブラウザから確認する
++ ブラウザから初期設定を行います
 
 ```
 http://IP_ADDRESS:8080
 ```
 
++ 準備中…
 
-## memo
+{{< figure src="/images/2021/04/25/01.png" >}}
+
++ まずは admin としてログイン & 初期設定を行うために表記されている PATH にあるファイルから admin のパスワードをコピペします
+
+{{< figure src="/images/2021/04/25/02.png" >}}
+
++ Jenkins の Plugin のインストール画面では `suggested` を選びます
+
+{{< figure src="/images/2021/04/25/03.png" >}}
+
++ admin 以外のユーザの作成をします
+  + ここでは作成せずに、admin のまま進めます
+
+{{< figure src="/images/2021/04/25/04.png" >}}
+
++ Jenkins の URL の設定を入れます
+  + ここも後でゆっくりと設定したほうがいいでしょう
+
+{{< figure src="/images/2021/04/25/05.png" >}}
+
++ これで初期設定は完了です!!
+  + 設定しなかった項目は後ほど設定しましょう
+
+{{< figure src="/images/2021/04/25/06.png" >}}
+
++ Jenkins のようこそページが見れるようになりました :)
+
+{{< figure src="/images/2021/04/25/07.png" >}}
+
+
+
+# memo
 
 admin の初期パスワードは `/var/lib/jenkins/secrets/initialAdminPassword` にある
 
@@ -194,3 +229,15 @@ SuccessExitStatus=5 6
 ExecStart=/etc/init.d/jenkins start
 ExecStop=/etc/init.d/jenkins stop
 ```
+
++ Jenkins の Version の確認
+
+```
+$ sudo cat /var/lib/jenkins/config.xml | grep "version" | grep -v "xml"
+  <version>2.277.2</version>
+```
+
+
+# まとめ
+
+hoeg
