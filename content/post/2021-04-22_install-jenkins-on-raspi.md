@@ -1,6 +1,6 @@
 +++
 title = "Raspberry Pi に Jenkins をインストールする"
-date = 2021-03-31T00:00:00Z
+date = 2021-04-22T00:00:00Z
 tags = [
     "Raspberry Pi",
     "Jenkins",
