@@ -46,6 +46,12 @@ docker-compose up -d
 
 http://127.0.0.1:1313
 
++ 停止と削除
+
+```
+docker-compose stop
+docker-compose rm -f
+```
 
 ### ドラブルシューティング
 

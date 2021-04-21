@@ -190,6 +190,3 @@ journalctl -u mjpg-streamer
 systemctl status mjpg-streamer
 
 
-
-
-楓カレン
