@@ -5,7 +5,7 @@ tags = [
     "Raspberry Pi",
     "Jenkins",
 ]
-draft = true # `true` or `false`
+draft = false # `true` or `false`
 toc = true
 backtotop = true
 disable_comment = true
