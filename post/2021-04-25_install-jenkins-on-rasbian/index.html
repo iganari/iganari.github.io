@@ -1,0 +1,144 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><title>Raspberry Pi に Jenkins をインストールする</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-XX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','UA-XXXXXXXX-XX');</script><script data-goatcounter=https://iganari.github.io/count async src=//iganari.github.io/count.js></script><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=alternate type=application/rss+xml href=https://iganari.github.io/index.xml title="Escape from"><meta name=twitter:card content="summary"><meta name=twitter:title content="Raspberry Pi に Jenkins をインストールする"><meta name=twitter:description content="Raspberry Pi に Jenkins をインストールし起動するやり方です  :)"><link rel=stylesheet href=https://iganari.github.io/fontawesome/css/all.min.css><link id=dark-mode-theme rel=stylesheet href=https://iganari.github.io/css/dark.css><script>var darkTheme=document.getElementById('dark-mode-theme')
+var storedTheme=localStorage.getItem('dark-mode-storage')
+if(storedTheme==='dark'){darkTheme.disabled=false}else if(storedTheme==='light'){darkTheme.disabled=true}</script><script src=https://iganari.github.io/js/main.bundle.js></script><script src=https://iganari.github.io/js/instantpage.min.js type=module defer></script><meta name=generator content="Hugo 0.79.1"></head><body><header><nav class=navbar><div class=nav><a href=https://iganari.github.io/ class=nav-logo><img src=https://iganari.github.io/images/icon.png width=50 height=50 alt=Logo></a><ul class=nav-links><li><a href=/about/ id=About><em class="fas fa-user fa-lg"></em></a></li><li><a href=/tags id=Tags><em class="fas fa-tag fa-lg"></em></a></li><li><a href=/search id=Search><em class="fas fa-search fa-lg"></em></a></li><li><a href=/archives id=Archives><em class="fas fa-archive fa-lg"></em></a></li></ul></div></nav><div class=intro-header><div class=container><div class=post-heading><h1>Raspberry Pi に Jenkins をインストールする</h1><span class=meta-post><em class="fa fa-calendar-alt"></em>&nbsp;Mar 31, 2021</span></div></div></div></header><div class=container role=main><article class=article class=blog-post><p>Raspberry Pi に Jenkins をインストールし起動するやり方です :)</p><hr><h1 id=注意点>注意点</h1><p>この記事は下記の記事のアーカイブです ;)</p><p><a href=https://iganari.hatenablog.com/entry/2021/04/22/025532>https://iganari.hatenablog.com/entry/2021/04/22/025532</a></p><p>今記事の情報は執筆当時のものになります &lt;(. . )></p><h1 id=概要>概要</h1><p>宅内に簡単なジョブ基盤が欲しいと思っていたところ、使用していない Raspberry Pi があったので Jenkins をインストールしてみようと思いました</p><p>結果から書くと、公式ドキュメントの通りにやると出来ます :)</p><p><a href=https://www.jenkins.io/doc/book/installing/linux/>https://www.jenkins.io/doc/book/installing/linux/</a></p><h1 id=実際にやってみる>実際にやってみる</h1><h3 id=使用する-raspberry-pi-のスペック>使用する Raspberry Pi のスペック</h3><pre><code>$ cat /etc/os-release
+PRETTY_NAME=&quot;Raspbian GNU/Linux 10 (buster)&quot;
+NAME=&quot;Raspbian GNU/Linux&quot;
+VERSION_ID=&quot;10&quot;
+VERSION=&quot;10 (buster)&quot;
+VERSION_CODENAME=buster
+ID=raspbian
+ID_LIKE=debian
+HOME_URL=&quot;http://www.raspbian.org/&quot;
+SUPPORT_URL=&quot;http://www.raspbian.org/RaspbianForums&quot;
+BUG_REPORT_URL=&quot;http://www.raspbian.org/RaspbianBugs&quot;
+</code></pre><pre><code>$ uname -a
+Linux raspi 5.10.17-v7+ #1403 SMP Mon Feb 22 11:29:51 GMT 2021 armv7l GNU/Linux
+</code></pre><pre><code>$ cat /proc/version
+Linux version 5.10.17-v7+ (dom@buildbot) (arm-linux-gnueabihf-gcc-8 (Ubuntu/Linaro 8.4.0-3ubuntu1) 8.4.0, GNU ld (GNU Binutils for Ubuntu) 2.34) #1403 SMP Mon Feb 22 11:29:51 GMT 2021
+</code></pre><h3 id=java-のインストール>Java のインストール</h3><ul><li>apt を更新する</li></ul><pre><code>sudo apt update
+</code></pre><ul><li>インストール出来る最新の OpenJDK を探します</li></ul><pre><code>$ sudo apt search openjdk | grep jre
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+default-jre/stable 2:1.11-71+b1 armhf
+default-jre-headless/stable 2:1.11-71+b1 armhf
+openjdk-10-jre/stable 10.0.2+13-2 armhf
+openjdk-10-jre-headless/stable 10.0.2+13-2 armhf
+openjdk-10-jre-zero/stable 10.0.2+13-2 armhf
+openjdk-11-jre/stable 11.0.9.1+1-1~deb10u2 armhf
+openjdk-11-jre-headless/stable 11.0.9.1+1-1~deb10u2 armhf
+openjdk-8-jre/stable 8u212-b01-1+rpi1 armhf
+openjdk-8-jre-headless/stable 8u212-b01-1+rpi1 armhf
+openjdk-8-jre-zero/stable 8u212-b01-1+rpi1 armhf
+openjdk-9-jre/stable 9.0.4+12-4 armhf
+openjdk-9-jre-headless/stable 9.0.4+12-4 armhf
+openjdk-9-jre-zero/stable 9.0.4+12-4 armhf
+</code></pre><ul><li>LTS である <code>Java 11</code> に対応する <code>openjdk-11-jre</code> がインストール出来そうなので、このバージョンをインストールしましょう<ul><li>参考: <a href=https://adoptopenjdk.net/support.html#roadmap>AdoptOpenJDK | Support</a></li></ul></li></ul><pre><code>sudo apt install openjdk-11-jre
+</code></pre><ul><li>OpenJDK の確認します</li></ul><pre><code>$ java --version
+openjdk 11.0.9.1 2020-11-04
+OpenJDK Runtime Environment (build 11.0.9.1+1-post-Raspbian-1deb10u2)
+OpenJDK Server VM (build 11.0.9.1+1-post-Raspbian-1deb10u2, mixed mode)
+</code></pre><h3 id=jenkins-のインストール>Jenkins のインストール</h3><ul><li>Jenkins を apt 経由でインストールします<ul><li>参考 <a href=https://www.jenkins.io/doc/book/installing/linux/>公式ドキュメント</a></li></ul></li></ul><pre><code>wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ &gt; \
+    /etc/apt/sources.list.d/jenkins.list'
+sudo apt-get update
+sudo apt-get install jenkins
+</code></pre><ul><li>Jenkins のデーモンを確認します</li></ul><pre><code>$ sudo systemctl status jenkins
+● jenkins.service - LSB: Start Jenkins at boot time
+   Loaded: loaded (/etc/init.d/jenkins; generated)
+   Active: active (exited) since Tue 2021-04-20 22:50:21 JST; 1min 6s ago
+     Docs: man:systemd-sysv-generator(8)
+    Tasks: 0 (limit: 2062)
+   CGroup: /system.slice/jenkins.service
+
+Apr 20 22:50:19 raspi systemd[1]: Starting LSB: Start Jenkins at boot time...
+Apr 20 22:50:19 raspi jenkins[3495]: Correct java version found
+Apr 20 22:50:19 raspi su[3554]: (to jenkins) root on none
+Apr 20 22:50:19 raspi su[3554]: pam_unix(su-l:session): session opened for user jenkins by (uid=0)
+Apr 20 22:50:20 raspi su[3554]: pam_unix(su-l:session): session closed for user jenkins
+Apr 20 22:50:21 raspi jenkins[3495]: Starting Jenkins Automation Server: jenkins.
+Apr 20 22:50:21 raspi systemd[1]: Started LSB: Start Jenkins at boot time.
+</code></pre><ul><li>ブラウザから初期設定を行います</li></ul><pre><code>http://IP_ADDRESS:8080
+</code></pre><ul><li>準備中…</li></ul><figure><img src=/images/2021/04/25/01.png></figure><ul><li>まずは admin としてログイン & 初期設定を行うために表記されている PATH にあるファイルから admin のパスワードをコピペします</li></ul><figure><img src=/images/2021/04/25/02.png></figure><ul><li>Jenkins の Plugin のインストール画面では <code>suggested</code> を選びます</li></ul><figure><img src=/images/2021/04/25/03.png></figure><ul><li>admin 以外のユーザの作成をします<ul><li>ここでは作成せずに、admin のまま進めます</li></ul></li></ul><figure><img src=/images/2021/04/25/04.png></figure><ul><li>Jenkins の URL の設定を入れます<ul><li>ここも後でゆっくりと設定したほうがいいでしょう</li></ul></li></ul><figure><img src=/images/2021/04/25/05.png></figure><ul><li>これで初期設定は完了です!!<ul><li>設定しなかった項目は後ほど設定しましょう</li></ul></li></ul><figure><img src=/images/2021/04/25/06.png></figure><ul><li>Jenkins のようこそページが見れるようになりました :)</li></ul><figure><img src=/images/2021/04/25/07.png></figure><p>&mdash;> これで Jenkins on Raspberry Pi の基礎構築が完了しました! :)</p><h1 id=その他最低限設定しておいたほうが良いこと>その他、最低限設定しておいたほうが良いこと</h1><h3 id=jenkins-の-version>Jenkins の Version</h3><ul><li>Jenkins の Version はコンフィグに書いてあるので確認出来ます</li></ul><pre><code>$ sudo cat /var/lib/jenkins/config.xml | grep &quot;version&quot; | grep -v &quot;xml&quot;
+  &lt;version&gt;2.277.2&lt;/version&gt;
+</code></pre><h3 id=jenkins-cli>Jenkins CLI</h3><p>Jenkins には便利な CLI があるので実行出来るようにしておきましょう</p><ul><li>以下の URL にアクセスし、 <code>jenkins-cli.jar</code> をダウンロードしておきます<ul><li>ダウンロード後にサーバにコピーして下さい</li></ul></li></ul><pre><code>http://IP_ADDRESS:8080/cli/
+</code></pre><ul><li>直接サーバ上でダウンロードする場合は以下のようにします</li></ul><pre><code>cd /usr/local/bin
+sudo wget http://localhost:8080/jnlpJars/jenkins-cli.jar
+sudo chmod 0755 jenkins-cli.jar
+</code></pre><h3 id=admin-のパスワード>admin のパスワード</h3><ul><li>admin の初期パスワードは <code>${JENKINS_HOME}/secrets/initialAdminPassword</code> にあります</li></ul><pre><code>export JENKINS_HOME='/var/lib/jenkins'
+
+cat ${JENKINS_HOME}/secrets/initialAdminPassword
+</code></pre><p>記事中にも書きましたが、admin ユーザ以外の設定を必ずしましょう</p><h3 id=ログローテートの設定>ログローテートの設定</h3><p>Jenkins のログに対してのローテートの設定( <code>/etc/logrotate.d/jenkins</code> )を変更しておきます</p><ul><li>修正前</li></ul><pre><code>/var/log/jenkins/jenkins.log /var/log/jenkins/access_log {
+        weekly
+        copytruncate
+        missingok
+        rotate 52
+        compress
+        delaycompress
+        notifempty
+}
+</code></pre><ul><li>修正後</li></ul><pre><code>/var/log/jenkins/*.log
+{
+    daily
+    missingok
+    dateext
+    rotate 52
+    compress
+    delaycompress
+    notifempty
+    create 644 jenkins jenkins
+    sharedscripts
+    postrotate
+        if [ -f /var/run/jenkins ]; then
+            kill -USR1 `cat /var/run/jenkins`
+        fi
+    endscript
+}
+</code></pre><ul><li>ドライランをします</li></ul><pre><code>sudo /usr/sbin/logrotate -dv /etc/logrotate.d/jenkins
+</code></pre><ul><li>強制実行をします</li></ul><pre><code>sudo /usr/sbin/logrotate -f /etc/logrotate.d/jenkins
+</code></pre><h3 id=systemd-について>Systemd について</h3><ul><li>固有の状況かもしれませんが、 Jenkins の Systemd の設定が以下の PATH にありました</li></ul><pre><code>/run/systemd/generator.late/jenkins.service
+</code></pre><ul><li>内容は以下のようです<ul><li><code>/run/systemd/generator.late/jenkins.service</code></li></ul></li></ul><pre><code># Automatically generated by systemd-sysv-generator
+
+[Unit]
+Documentation=man:systemd-sysv-generator(8)
+SourcePath=/etc/init.d/jenkins
+Description=LSB: Start Jenkins at boot time
+Before=multi-user.target
+Before=multi-user.target
+Before=multi-user.target
+Before=graphical.target
+After=remote-fs.target
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=forking
+Restart=no
+TimeoutSec=5min
+IgnoreSIGPIPE=no
+KillMode=process
+GuessMainPID=no
+RemainAfterExit=yes
+SuccessExitStatus=5 6
+ExecStart=/etc/init.d/jenkins start
+ExecStop=/etc/init.d/jenkins stop
+</code></pre><h1 id=まとめ>まとめ</h1><p>Raspberry Pi に Jenkins をインストールし起動するやり方を書きました</p><p>宅内の簡単な処理を行うジョブ基盤としてしばらく使ってみようと思います</p><p>Have fun !! :)</p><div class=blog-tags><a href=https://iganari.github.io/tags/raspberry-pi/>Raspberry Pi</a>&nbsp;
+<a href=https://iganari.github.io/tags/jenkins/>Jenkins</a>&nbsp;</div></article><script>document.addEventListener('scroll',function(){if(document.body.scrollTop>50||document.documentElement.scrollTop>50){document.getElementById('backtotopButton').style.opacity='1'
+document.getElementById('backtotopButton').style.transition='0.5s'}else{document.getElementById('backtotopButton').style.opacity='0'
+document.getElementById('backtotopButton').style.transition='0.5s'}})
+function topFunction(){document.body.scrollTop=0
+document.documentElement.scrollTop=0}</script><button onclick=topFunction() id=backtotopButton>
+<em class="fa fa-angle-up"></em></button><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname=="localhost")return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='yourdisqusshortname';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the
+<a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com/ class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><footer><div class=social-icons><a href=https://twitter.com/iganari_ name=twitter><em class="fab fa-twitter"></em></a>&nbsp;&ndash;&nbsp;
+<a href=https://github.com/iganari name=github><em class="fab fa-github"></em></a>&nbsp;&ndash;&nbsp;
+<a href=https://www.linkedin.com/in/iganari/ name=LinkedIn><em class="fab fa-linkedin-in"></em></a>&nbsp;&ndash;&nbsp;
+<a href=link%20to%20social%20media name="name of social media"><em class="A icon from https://fontawesome.com/"></em></a></div><div class=container><p class="credits copyright"><a href=https://iganari.github.io/about>iganari</a>
+&nbsp;&copy;
+2021
+&nbsp;/&nbsp;
+<a href=https://iganari.github.io/>Escape from</a>
+&nbsp;&ndash;&nbsp;
+<em class="fas fa-moon" id=dark-mode-toggle></em></p><p class="credits theme-by">Powered By <a href=https://gohugo.io>Hugo</a>&nbsp;
+Theme
+<a href=https://github.com/matsuyoshi30/harbor>Harbor</a></p></div></footer></body></html>
