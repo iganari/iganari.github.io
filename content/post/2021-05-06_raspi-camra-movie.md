@@ -1,10 +1,9 @@
 +++
-title = "raspi-camera-nodered"
-date = 2021-03-31T00:00:00Z
+title = "Raspberry Pi に Web カメラを接続し、動画の撮影をする"
+date = 2021-05-05T00:00:00Z
 tags = [
-    "GCP",
-    "Cloud Build",
-    "Cloud Scheduler",
+    "Raspberry Pi",
+    "Web カメラ",
 ]
 draft = true # `true` or `false`
 toc = true
@@ -190,6 +189,3 @@ journalctl -u mjpg-streamer
 systemctl status mjpg-streamer
 
 
-
-
-楓カレン
