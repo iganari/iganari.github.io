@@ -5,13 +5,13 @@ tags = [
     "Raspberry Pi",
     "Web カメラ",
 ]
-draft = true # `true` or `false`
+draft = false # `true` or `false`
 toc = true
 backtotop = true
 disable_comment = true
 +++
 
-Raspi + Camera + Node-RED => 栽培日記 v1
+Raspberry Pi に Web カメラを付けて、認識・撮影テストをします :)
 
 <!--more-->
 ---
@@ -27,6 +27,8 @@ https://iganari.hatenablog.com/entry/2021/05/05/080354
 # 概要
 
 Raspberry Pi に Web カメラを付けて、認識・撮影テストをします :)
+
+記事的には基礎的な構築手順となります
 
 # 準備するもの
 
