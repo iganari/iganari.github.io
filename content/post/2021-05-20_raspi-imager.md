@@ -4,7 +4,7 @@ date = 2021-05-19T00:00:00Z
 tags = [
     "Raspberry Pi"
 ]
-draft = true # `true` or `false`
+draft = false # `true` or `false`
 toc = true
 backtotop = true
 disable_comment = true
@@ -19,19 +19,13 @@ Raspberry Pi 用の microSD を新しい方法で作成する話です :)
 
 この記事は下記の記事のアーカイブです ;)
 
-WIP
+https://iganari.hatenablog.com/entry/2021/05/20/060817
 
 今記事の情報は執筆当時のものになります <(. . )>
 
 # 概要
 
 Raspberry Pi をセットアップするためには、事前に microSD にイメージを焼き込んでから、Raspberry Pi にセットする必要があります
-
-同然のことながら、その microSD にイメージを焼く作業は Raspberry Pi 以外で行わなくてはいけません
-
-例えば、 Windows や macOS、 Ubuntu などの OS 上で可能であり、GUI でやることも出来ますし、CUI からも出来ます
-
-しかし、この作業は慣れていないと大変かもしれません
 
 今までは CUI でイメージの焼き込み作業をすることが多かったのですが、今回は公式( The Raspberry Pi Foundation )がリリースしている `Raspberry Pi Imager` を使って、microSD にイメージを焼く作業をしてみたいと思います :)
 
