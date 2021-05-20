@@ -1,0 +1,149 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><title>Raspberry Pi に Web カメラを接続し、写真の撮影をする</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-XX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','UA-XXXXXXXX-XX');</script><script data-goatcounter=https://iganari.github.io/count async src=//iganari.github.io/count.js></script><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=alternate type=application/rss+xml href=https://iganari.github.io/index.xml title="Escape from"><meta name=twitter:card content="summary"><meta name=twitter:title content="Raspberry Pi に Web カメラを接続し、写真の撮影をする"><meta name=twitter:description content="Raspberry Pi に Web カメラを付けて、認識・撮影テストをします :)"><link rel=stylesheet href=https://iganari.github.io/fontawesome/css/all.min.css><link id=dark-mode-theme rel=stylesheet href=https://iganari.github.io/css/dark.css><script>var darkTheme=document.getElementById('dark-mode-theme')
+var storedTheme=localStorage.getItem('dark-mode-storage')
+if(storedTheme==='dark'){darkTheme.disabled=false}else if(storedTheme==='light'){darkTheme.disabled=true}</script><script src=https://iganari.github.io/js/main.bundle.js></script><script src=https://iganari.github.io/js/instantpage.min.js type=module defer></script><meta name=generator content="Hugo 0.79.1"></head><body><header><nav class=navbar><div class=nav><a href=https://iganari.github.io/ class=nav-logo><img src=https://iganari.github.io/images/icon.png width=50 height=50 alt=Logo></a><ul class=nav-links><li><a href=/about/ id=About><em class="fas fa-user fa-lg"></em></a></li><li><a href=/tags id=Tags><em class="fas fa-tag fa-lg"></em></a></li><li><a href=/search id=Search><em class="fas fa-search fa-lg"></em></a></li><li><a href=/archives id=Archives><em class="fas fa-archive fa-lg"></em></a></li></ul></div></nav><div class=intro-header><div class=container><div class=post-heading><h1>Raspberry Pi に Web カメラを接続し、写真の撮影をする</h1><span class=meta-post><em class="fa fa-calendar-alt"></em>&nbsp;May 5, 2021</span></div></div></div></header><div class=container role=main><article class=article class=blog-post><p>Raspberry Pi に Web カメラを付けて、認識・撮影テストをします :)</p><hr><h1 id=注意点>注意点</h1><p>この記事は下記の記事のアーカイブです ;)</p><p><a href=https://iganari.hatenablog.com/entry/2021/05/05/080354>https://iganari.hatenablog.com/entry/2021/05/05/080354</a></p><p>今記事の情報は執筆当時のものになります &lt;(. . )></p><h1 id=概要>概要</h1><p>Raspberry Pi に Web カメラを付けて、認識・撮影テストをします :)</p><p>記事的には基礎的な構築手順となります</p><h1 id=準備するもの>準備するもの</h1><h3 id=raspberry-pi>Raspberry Pi</h3><ul><li>Raspberry Pi 3 Model B</li></ul><p><a href=https://www.raspberrypi.org/products/raspberry-pi-3-model-b/>https://www.raspberrypi.org/products/raspberry-pi-3-model-b/</a></p><p><img src=https://www.raspberrypi.org/homepage-9df4b/static/532b4c25752c4235d76cc41051baf9ab/ae23f/877fb653-7b43-4931-9cee-977a22571f65_3b%2BAngle%2B2%2Brefresh.jpg alt></p><ul><li>実物はこんな感じです</li></ul><figure><img src=/images/2021/05/05/01.png></figure><ul><li>使用している OS</li></ul><pre><code>$ cat /etc/os-release
+PRETTY_NAME=&quot;Raspbian GNU/Linux 10 (buster)&quot;
+NAME=&quot;Raspbian GNU/Linux&quot;
+VERSION_ID=&quot;10&quot;
+VERSION=&quot;10 (buster)&quot;
+VERSION_CODENAME=buster
+ID=raspbian
+ID_LIKE=debian
+HOME_URL=&quot;http://www.raspbian.org/&quot;
+SUPPORT_URL=&quot;http://www.raspbian.org/RaspbianForums&quot;
+BUG_REPORT_URL=&quot;http://www.raspbian.org/RaspbianBugs&quot;
+</code></pre><h3 id=web-カメラ>Web カメラ</h3><ul><li>ロジクール Logicool C310n</li></ul><p><a href=https://www.logicool.co.jp/ja-jp/products/webcams/hd-webcam-c310n.960-001264.html>https://www.logicool.co.jp/ja-jp/products/webcams/hd-webcam-c310n.960-001264.html</a></p><p><img src=https://resource.logitech.com/w_1206,c_limit,q_auto,f_auto,dpr_1.0/content/dam/logitech/en/products/webcams/c310/c310-intro.png alt></p><ul><li>実物はこんな感じです</li></ul><figure><img src=/images/2021/05/05/02.png></figure><h1 id=実装>実装</h1><h3 id=usb-接続する>USB 接続する</h3><p>兎にも角にも Web カメラを Raspberry Pi に USB 接続します</p><p>特に注意点はありません ;)</p><h3 id=usb-接続を-cli-から確認する>USB 接続を CLI から確認する</h3><ul><li>以下のコマンドを使用して USB 接続を確認します</li></ul><pre><code>lsusb
+</code></pre><pre><code>### 例 USB 接続する前
+
+$ lsusb
+Bus 001 Device 003: ID 0424:ec00 Standard Microsystems Corp. SMSC9512/9514 Fast Ethernet Adapter
+Bus 001 Device 002: ID 0424:9514 Standard Microsystems Corp. SMC9514 Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+</code></pre><pre><code>### 例 USB 接続した後
+
+$ lsusb
+Bus 001 Device 004: ID 046d:081b Logitech, Inc. Webcam C310         &lt;---- 追加された
+Bus 001 Device 003: ID 0424:ec00 Standard Microsystems Corp. SMSC9512/9514 Fast Ethernet Adapter
+Bus 001 Device 002: ID 0424:9514 Standard Microsystems Corp. SMC9514 Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+</code></pre><p>&mdash;> USB 接続は正常に出来ていることが分かりました</p><h3 id=デバイスファイルが作成されているか確認する>デバイスファイルが作成されているか確認する</h3><ul><li>サーバ上に USB カメラのデバイスファイルが作成されている方を確認します</li></ul><pre><code>ls -la /dev/video*
+</code></pre><pre><code>### 例 USB 接続する前
+
+$ ls -la /dev/video*
+crw-rw----+ 1 root video 81, 4 May  3 11:03 /dev/video10
+crw-rw----+ 1 root video 81, 5 May  3 11:03 /dev/video11
+crw-rw----+ 1 root video 81, 6 May  3 11:03 /dev/video12
+crw-rw----+ 1 root video 81, 0 May  3 11:03 /dev/video13
+crw-rw----+ 1 root video 81, 1 May  3 11:03 /dev/video14
+crw-rw----+ 1 root video 81, 2 May  3 11:03 /dev/video15
+crw-rw----+ 1 root video 81, 3 May  3 11:03 /dev/video16
+</code></pre><pre><code>### 例 USB 接続した後
+
+$ ls -la /dev/video*
+crw-rw----+ 1 root video 81, 9 May  3 11:26 /dev/video0         &lt;---- 追加された
+crw-rw----+ 1 root video 81, 8 May  3 11:26 /dev/video1         &lt;---- 追加された
+crw-rw----+ 1 root video 81, 4 May  3 11:03 /dev/video10
+crw-rw----+ 1 root video 81, 5 May  3 11:03 /dev/video11
+crw-rw----+ 1 root video 81, 6 May  3 11:03 /dev/video12
+crw-rw----+ 1 root video 81, 0 May  3 11:03 /dev/video13
+crw-rw----+ 1 root video 81, 1 May  3 11:03 /dev/video14
+crw-rw----+ 1 root video 81, 2 May  3 11:03 /dev/video15
+crw-rw----+ 1 root video 81, 3 May  3 11:03 /dev/video16
+</code></pre><p>&mdash;> <code>/dev/video0</code> と <code>/dev/video１</code> が作成されていれば、OK です</p><h3 id=web-カメラで写真を撮影をする>Web カメラで写真を撮影をする</h3><ul><li>CLI で Web カメラを実行するために、 <code>fswebcam</code> コマンドをインストールします</li></ul><pre><code>sudo apt update
+sudo apt install -y fswebcam
+</code></pre><ul><li>写真を撮影をします</li></ul><pre><code>mkdir ~/camera-test
+cd ~/camera-test
+</code></pre><pre><code>fswebcam image.jpg
+</code></pre><pre><code>### 例
+
+$ fswebcam image.jpg
+--- Opening /dev/video0...
+Trying source module v4l2...
+/dev/video0 opened.
+No input was specified, using the first.
+Adjusting resolution from 384x288 to 352x288.
+--- Capturing frame...
+Captured frame in 0.00 seconds.
+--- Processing captured image...
+Writing JPEG image to 'image.jpg'.
+</code></pre><ul><li>写真が出来ているのを確認します</li></ul><pre><code>$ ls -lh
+total 80K
+-rw-r--r-- 1 pi pi 78K May  5 05:28 image.jpg
+</code></pre><figure><img src=/images/2021/05/05/03.png></figure><p>&mdash;> 基本的な使い方はこれだけです :)</p><h3 id=注意点-1>注意点</h3><p><code>fswebcam</code> コマンドはデフォルトで <code>/dev/video0</code> をソース元として指定しています</p><p>故に Web カメラを Raspberry Pi に接続した際に <code>/dev/video0</code> がちゃんと作成されているか確認して下さい</p><p>また、同じ現象は Node-Red の <a href=https://flows.nodered.org/node/node-red-contrib-usbcamera><code>node-red-contrib-usbcamera</code> ノード</a> を使った際も発生しますので、しっかり確認しておいて下さい :)</p><p>Node-Red で Web カメラを使う記事も後日作成予定です ;)</p><h3 id=おまけ>おまけ</h3><ul><li><code>fswebcam</code> コマンドのオプションを調べます<ul><li>かなり多機能なのでこれだけでもいろいろ出来そうですね :)</li></ul></li></ul><pre><code>$ fswebcam --help
+Usage: fswebcam [&lt;options&gt;] &lt;filename&gt; [[&lt;options&gt;] &lt;filename&gt; ... ]
+
+ Options:
+
+ -?, --help                   Display this help page and exit.
+ -c, --config &lt;filename&gt;      Load configuration from file.
+ -q, --quiet                  Hides all messages except for errors.
+ -v, --verbose                Displays extra messages while capturing
+     --version                Displays the version and exits.
+ -l, --loop &lt;seconds&gt;         Run in loop mode.
+ -b, --background             Run in the background.
+ -o, --output &lt;filename&gt;      Output the log to a file.
+ -d, --device &lt;name&gt;          Sets the source to use.
+ -i, --input &lt;number/name&gt;    Selects the input to use.
+ -t, --tuner &lt;number&gt;         Selects the tuner to use.
+ -f, --frequency &lt;number&gt;     Selects the frequency use.
+ -p, --palette &lt;name&gt;         Selects the palette format to use.
+ -D, --delay &lt;number&gt;         Sets the pre-capture delay time. (seconds)
+ -r, --resolution &lt;size&gt;      Sets the capture resolution.
+     --fps &lt;framerate&gt;        Sets the capture frame rate.
+ -F, --frames &lt;number&gt;        Sets the number of frames to capture.
+ -S, --skip &lt;number&gt;          Sets the number of frames to skip.
+     --dumpframe &lt;filename&gt;   Dump a raw frame to file.
+ -s, --set &lt;name&gt;=&lt;value&gt;     Sets a control value.
+     --revert                 Restores original captured image.
+     --flip &lt;direction&gt;       Flips the image. (h, v)
+     --crop &lt;size&gt;[,&lt;offset&gt;] Crop a part of the image.
+     --scale &lt;size&gt;           Scales the image.
+     --rotate &lt;angle&gt;         Rotates the image in right angles.
+     --deinterlace            Reduces interlace artifacts.
+     --invert                 Inverts the images colours.
+     --greyscale              Removes colour from the image.
+     --swapchannels &lt;c1c2&gt;    Swap channels c1 and c2.
+     --no-banner              Hides the banner.
+     --top-banner             Puts the banner at the top.
+     --bottom-banner          Puts the banner at the bottom. (Default)
+     --banner-colour &lt;colour&gt; Sets the banner colour. (#AARRGGBB)
+     --line-colour &lt;colour&gt;   Sets the banner line colour.
+     --text-colour &lt;colour&gt;   Sets the text colour.
+     --font &lt;[name][:size]&gt;   Sets the font and/or size.
+     --no-shadow              Disables the text shadow.
+     --shadow                 Enables the text shadow.
+     --title &lt;text&gt;           Sets the main title. (top left)
+     --no-title               Clears the main title.
+     --subtitle &lt;text&gt;        Sets the sub-title. (bottom left)
+     --no-subtitle            Clears the sub-title.
+     --timestamp &lt;format&gt;     Sets the timestamp format. (top right)
+     --no-timestamp           Clears the timestamp.
+     --gmt                    Use GMT instead of local timezone.
+     --info &lt;text&gt;            Sets the info text. (bottom right)
+     --no-info                Clears the info text.
+     --underlay &lt;PNG image&gt;   Sets the underlay image.
+     --no-underlay            Clears the underlay.
+     --overlay &lt;PNG image&gt;    Sets the overlay image.
+     --no-overlay             Clears the overlay.
+     --jpeg &lt;factor&gt;          Outputs a JPEG image. (-1, 0 - 95)
+     --png &lt;factor&gt;           Outputs a PNG image. (-1, 0 - 10)
+     --save &lt;filename&gt;        Save image to file.
+</code></pre><h1 id=まとめ>まとめ</h1><p>Raspberry Pi に Web カメラを接続し、写真の撮影をするやり方を書きました</p><p>途中使用した <code>fswebcam</code> コマンドも多機能なので、これから色々使ってみたいと思います</p><p>Have fun !! :)</p><div class=blog-tags><a href=https://iganari.github.io/tags/raspberry-pi/>Raspberry Pi</a>&nbsp;
+<a href=https://iganari.github.io/tags/web-%E3%82%AB%E3%83%A1%E3%83%A9/>Web カメラ</a>&nbsp;</div></article><script>document.addEventListener('scroll',function(){if(document.body.scrollTop>50||document.documentElement.scrollTop>50){document.getElementById('backtotopButton').style.opacity='1'
+document.getElementById('backtotopButton').style.transition='0.5s'}else{document.getElementById('backtotopButton').style.opacity='0'
+document.getElementById('backtotopButton').style.transition='0.5s'}})
+function topFunction(){document.body.scrollTop=0
+document.documentElement.scrollTop=0}</script><button onclick=topFunction() id=backtotopButton>
+<em class="fa fa-angle-up"></em></button><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname=="localhost")return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='yourdisqusshortname';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the
+<a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com/ class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><footer><div class=social-icons><a href=https://twitter.com/iganari_ name=twitter><em class="fab fa-twitter"></em></a>&nbsp;&ndash;&nbsp;
+<a href=https://github.com/iganari name=github><em class="fab fa-github"></em></a>&nbsp;&ndash;&nbsp;
+<a href=https://www.linkedin.com/in/iganari/ name=LinkedIn><em class="fab fa-linkedin-in"></em></a>&nbsp;&ndash;&nbsp;
+<a href=link%20to%20social%20media name="name of social media"><em class="A icon from https://fontawesome.com/"></em></a></div><div class=container><p class="credits copyright"><a href=https://iganari.github.io/about>iganari</a>
+&nbsp;&copy;
+2021
+&nbsp;/&nbsp;
+<a href=https://iganari.github.io/>Escape from</a>
+&nbsp;&ndash;&nbsp;
+<em class="fas fa-moon" id=dark-mode-toggle></em></p><p class="credits theme-by">Powered By <a href=https://gohugo.io>Hugo</a>&nbsp;
+Theme
+<a href=https://github.com/matsuyoshi30/harbor>Harbor</a></p></div></footer></body></html>
