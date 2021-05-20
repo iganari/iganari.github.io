@@ -11,7 +11,7 @@ backtotop = true
 disable_comment = true
 +++
 
-Raspberry Pi に Jenkins をインストールするやり方です  :)
+Raspberry Pi に Jenkins をインストールするやり方です :)
 
 <!--more-->
 ---
